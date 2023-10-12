@@ -25,6 +25,9 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@ngrx/effects": "^16.3.0",
+    "@ngrx/store": "^16.3.0",
+    "json-server": "^0.17.4",
     "rxjs": "~7.8.0",
     "zone.js": "~0.13.0"
   },
@@ -37,6 +40,7 @@
     "@angular-eslint/template-parser": "16.2.0",
     "@angular/cli": "~16.1.6",
     "@angular/compiler-cli": "^16.1.0",
+    "@ngrx/eslint-plugin": "^16.3.0",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
