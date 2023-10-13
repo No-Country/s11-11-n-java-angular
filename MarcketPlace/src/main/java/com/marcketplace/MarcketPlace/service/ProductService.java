@@ -6,7 +6,7 @@ import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
 import com.marcketplace.MarcketPlace.exception.NameExistsException;
 import com.marcketplace.MarcketPlace.model.Product;
 //import com.marcketplace.MarcketPlace.repository.IUserRepository;
-//import com.marcketplace.MarcketPlace.repository.ICategoryRepository;
+import com.marcketplace.MarcketPlace.repository.ICategoryRepository;
 import com.marcketplace.MarcketPlace.repository.IProductRepository;
 import com.marcketplace.MarcketPlace.util.IWordsConverter;
 import org.modelmapper.ModelMapper;
@@ -25,8 +25,8 @@ public class ProductService implements IProductService{
     private IProductRepository productRepository;
     //@Autowired
     //private IUserRepository userRepository;
-    //@Autowired
-    //private ICategoryRepository categoryRepository;
+    @Autowired
+    private ICategoryRepository categoryRepository;
     @Autowired
     private IWordsConverter wordsConverter;
     @Autowired
@@ -37,14 +37,14 @@ public class ProductService implements IProductService{
      * @param productDTO dto de producto
      * @throws NameExistsException mensaje de excepcion de nombre de producto ya existe
      */
-   @Override
+    @Override
     public void saveProduct(ProductDTOReq productDTO) throws NameExistsException, IdNotFoundException {
 //        if (!userRepository.existsById(productDTO.getUser().getId())){
 //            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
 //        }
-//        if (!categoryRepository.existsById(productDTO.getCategory().getId())){
-//            throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
-//        }
+       if (!categoryRepository.existsById(productDTO.getCategory().getId())){
+           throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
+       }
         if (productRepository.existsByName(productDTO.getName())) {
             throw new NameExistsException("El nombre " + productDTO.getName() + " ya existe. Ingrese un nuevo nombre");
         }
@@ -94,10 +94,10 @@ public class ProductService implements IProductService{
                 .orElseThrow(() -> new IdNotFoundException("El id " + productDTO + " no existe. Ingrese un nuevo id"));
         /*if (!userRepository.existsById(productDTO.getUser().getId())){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
-        }
+        }*/
         if (!categoryRepository.existsById(productDTO.getCategory().getId())){
             throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
-        }*/
+        }
         //valida que el nombre del producto no exista y si existe que coincida con el producto encontrado
         if (!productDTO.getName().equals(productDB.getName()) && productRepository.existsByName(productDTO.getName())) {
             throw new NameExistsException("El nombre " + productDTO.getName() + " ya existe. Ingrese un nuevo nombre");
