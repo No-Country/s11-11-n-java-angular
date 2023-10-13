@@ -13,7 +13,7 @@ export class AppEffects {
 
   _showalert = createEffect(() =>
     // eslint-disable-next-line @ngrx/prefer-effect-callback-in-block-statement, prettier/prettier
-   this.$action.pipe(
+    this.$action.pipe(
       ofType(showAlert),
       exhaustMap((action) => {
         return this.Shownackbaralert(action.message, action.resulttype)

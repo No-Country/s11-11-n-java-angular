@@ -1,3 +1,5 @@
+import { EntityState } from '@ngrx/entity';
+
 export interface Users {
   Fullname: string;
   Email: string;
@@ -9,3 +11,6 @@ export interface Users {
   Zip: string;
   PaymentPreferences: string;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface UserModel extends EntityState<Users> {}
