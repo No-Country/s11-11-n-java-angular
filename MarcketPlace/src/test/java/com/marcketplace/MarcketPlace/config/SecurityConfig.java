@@ -1,8 +1,5 @@
 package com.marcketplace.MarcketPlace.config;
 
-
-
-
 import com.marcketplace.MarcketPlace.security.CustomUserDetailsService;
 import com.marcketplace.MarcketPlace.security.jwt.JwtAuthorizationFilter;
 import com.marcketplace.MarcketPlace.util.enums.Role;
