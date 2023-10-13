@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: c-mysql
+    image: mysql:8.0.33
+    volumes:
+      - ./mysqlDB:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456789
+      MYSQL_DATABASE: marketplace
+    ports:
+      - 4000:3306
