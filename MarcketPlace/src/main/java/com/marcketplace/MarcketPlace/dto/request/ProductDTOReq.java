@@ -20,9 +20,9 @@ public class ProductDTOReq {
     @NotNull(message = "No puede estar vacio")
     private String images;
     /*    @NotNull(message = "No puede estar vacio")
-        private UserDTOReq seller;
-        @NotNull(message = "No puede estar vacio")
-        private CategoryDTOReq category;*/
+        private UserDTOReq seller;*/
+    @NotNull(message = "No puede estar vacio")
+    private CategoryDTOReq category;
     @NotNull(message = "No puede estar vacio")
     private String shippingStatus;
     @NotNull(message = "No puede estar vacio")
