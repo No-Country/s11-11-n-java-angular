@@ -14,7 +14,7 @@ public class ProductDTORes {
     private Double price;
     private String images;
     /*private User seller;*/
-     private CategoryDTORes category;
+    private CategoryDTORes category;
     private String shippingStatus;
     private int stock;
 

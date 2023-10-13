@@ -42,9 +42,9 @@ public class ProductService implements IProductService{
 //        if (!userRepository.existsById(productDTO.getUser().getId())){
 //            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
 //        }
-       if (!categoryRepository.existsById(productDTO.getCategory().getId())){
-           throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
-       }
+        if (!categoryRepository.existsById(productDTO.getCategory().getId())){
+            throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
+        }
         if (productRepository.existsByName(productDTO.getName())) {
             throw new NameExistsException("El nombre " + productDTO.getName() + " ya existe. Ingrese un nuevo nombre");
         }
