@@ -23,13 +23,13 @@ public class ShoppingCart implements Serializable {
     @Column(name = "quantity", nullable = false)
     private int quantity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+   @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
-
+/*
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-    private Product product;
+    private Product product;*/
     
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "purchase_order_id", referencedColumnName = "purchase_order_id")
