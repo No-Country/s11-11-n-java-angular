@@ -52,6 +52,8 @@ public class Account implements Serializable {
     @Transient
     private String token;
     
+    @OneToOne(mappedBy = "account", fetch = FetchType.EAGER)
+    private ShoppingCart cart;
 
     public Account(String email, String password){
         this.accountUuid = UUID.randomUUID().toString();
