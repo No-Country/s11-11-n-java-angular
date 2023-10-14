@@ -1,27 +1,74 @@
-# MultiClient
+# Proyecto E-commerce Multi-Client en Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+Este es un proyecto de E-commerce multi-client desarrollado en Angular. Permite crear una plataforma de compras en línea que puede servir a múltiples clientes con diferentes tiendas.
 
-## Development server
+## Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Multi-Client**: Este proyecto está diseñado para atender a múltiples clientes, cada uno con su propia tienda y catálogo de productos.
 
-## Code scaffolding
+- **Interfaz de Usuario Atractiva**: Utilizamos Angular, Angular Material y SCSS avanzado para crear una interfaz de usuario atractiva y fácil de usar para los clientes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Gestión de Productos**: Permite a los administradores de la tienda agregar, editar y eliminar productos de su tienda.
 
-## Build
+- **Carrito de Compras**: Los usuarios pueden agregar productos a su lista de deseados, pasarlos a su carrito de compras y realizar pedidos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Proceso de Pago**: Implementamos un proceso de pago seguro y fácil de usar para completar las transacciones.
 
-## Running unit tests
+## Requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Antes de comenzar con este proyecto, asegúrate de tener instalado lo siguiente:
 
-## Running end-to-end tests
+- Node.js & npm
+- Angular CLI
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) & [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Instalación
 
-## Further help
+1. Clona este repositorio en tu máquina local:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+git clone https://github.com/No-Country/s11-11-n-java-angular.git
+```
+
+2. Navega al directorio del proyecto:
+
+```bash
+cd frontend
+```
+
+3. Instala las dependencias del proyecto:
+
+```bash
+npm install
+```
+
+## Uso
+
+1. Inicia la aplicación en modo de desarrollo:
+
+```bash
+ng serve
+```
+
+2. Abre tu navegador y visita [http://localhost:4200/](http://localhost:4200/) para ver la aplicación en funcionamiento.
+
+## Contribución
+
+Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una rama para tu contribución: `git checkout -b my-contribution`.
+3. Realiza tus cambios y commitea: `git commit -m "add new feature"`.
+4. Sube tus cambios: `git push origin my-contribution`.
+5. Abre un pull request en GitHub.
+
+## Contacto
+
+Si tienes preguntas o necesitas ayuda, no dudes en contactarme:
+
+- Nombre: ...
+- Correo Electrónico: ...
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - consulta el archivo [LICENSE.md](LICENSE.md) para más detalles.
