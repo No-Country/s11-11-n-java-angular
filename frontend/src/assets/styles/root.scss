@@ -1,3 +1,21 @@
 :root {
   --c-1-a: #efeeee; /* Blanco-APP-textos-e-iconos */
+
+  /* Fonts */
+  --f-1: 'Montserrat', sans-serif;
+  --f-2: 'Open Sans', sans-serif;
+
+  /* Shadows */
+  --t-shadow-1: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --t-shadow-2: 2px 4px 4px rgba(0, 0, 0, 0.25);
+
+  /* Backround Gradients */
+  --bg-gradient-1: linear-gradient(
+    270deg,
+    #362256 0.02%,
+    #8b1e6f 73.65%,
+    #cf3686 102.82%
+  );
+  --bg-gradient-2: linear-gradient(0deg, #392357 -3.97%, #c23282 106.36%);
+  --bg-gradient-3: linear-gradient(180deg, #717171 0%, #363636 100%);
 }

@@ -1,0 +1,46 @@
+.footer-list {
+  font-family: var(--f-2);
+  background: var(--bg-gradient-3);
+  color: var(--c-1-a);
+  font-size: 18px;
+}
+
+.footer-list__item {
+  &:first-child {
+    padding: 3rem 3rem 1.5rem;
+    background: var(--bg-gradient-2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.container-social {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.container-address {
+  .address__item {
+    &:first-child {
+      font-weight: 700;
+    }
+
+    &:last-child {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.copy {
+  color: #fff;
+
+  /* Sombra APP */
+  text-shadow: var(--t-shadow-2);
+  font-weight: 400;
+}
