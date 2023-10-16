@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.List;
+
 
 @Data
 @DiscriminatorValue("customer")
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString  
 @Entity
 public class Customers extends Account implements Serializable {
 

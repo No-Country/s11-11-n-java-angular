@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -55,6 +56,7 @@ public class ProductController {
             description = "Busca un producto por id y devuelve un Codigo de estado 200 y los datos del producto"
     )
     @GetMapping("/{productId}")
+    
     public ResponseEntity<ProductDTORes> getProduct(@PathVariable Long productId) throws IdNotFoundException {
         return ResponseEntity.ok(productService.getProductById(productId));
     }
@@ -100,6 +102,7 @@ public class ProductController {
             summary = "Elimina un producto",
             description = "Elimina un producto por id, devuelve un Codigo de estado 204"
     )
+      
     @DeleteMapping("/{productId}")
     public ResponseEntity<HttpStatus> deleteProduct(@PathVariable Long productId) {
         productService.deleteProduct(productId);

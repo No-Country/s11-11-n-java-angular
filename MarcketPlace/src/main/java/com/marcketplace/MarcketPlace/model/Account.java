@@ -18,8 +18,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@DiscriminatorColumn(name="entity", discriminatorType=DiscriminatorType.STRING)
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="entity", discriminatorType=DiscriminatorType.STRING)
 @Table(name = "ACCOUNT")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Account implements Serializable {
@@ -64,4 +65,14 @@ public class Account implements Serializable {
     public Account(String email){
         this.email = email;
     }
+    public Object getEntity() {
+        return null;
+    }
+    public Object getDiscriminator() {
+        return null;
+    }
+
+    
 }
+ 
+

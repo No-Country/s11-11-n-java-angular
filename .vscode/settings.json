@@ -1,0 +1,18 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "ide.projectAutoSort": false,
+    "ide.mavenDefaultGoals": [
+
+        "clean install -Dmaven.test.skip=true",
+        "clean install"
+    ],
+    "extensions.closeExtensionDetailsOnViewChange": true,
+    "extensions.experimental.deferredStartupFinishedActivation": false,
+    "terminal.integrated.automationProfile.windows": {},
+    "emmet.preferences": {},
+    "ipynb.pasteImagesAsAttachments.enabled": false,
+    "java.decompiler.cfr": {},
+    "java.decompiler.fernflower": {},
+    "java.decompiler.procyon": null,
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
