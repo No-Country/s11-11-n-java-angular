@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { UserEffect } from './core/store/model/user/User.Effects';
 import { UserReducer } from './core/store/model/user/User.Reducer';
+import { AppEffects } from './core/store/common/app.effects';
 
 @NgModule({
   declarations: [AppComponent, RegisterComponent],
@@ -24,7 +25,7 @@ import { UserReducer } from './core/store/model/user/User.Reducer';
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({ user: UserReducer }),
-    EffectsModule.forRoot([UserEffect]),
+    EffectsModule.forRoot([UserEffect, AppEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
