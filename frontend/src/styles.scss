@@ -1,6 +1,12 @@
 @import url(assets/styles/root.scss);
 @import url(assets/styles/fonts.scss);
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   height: 100%;
@@ -11,13 +17,10 @@ body {
 }
 
 .container {
-  position: relative;
   max-width: 1280px;
   display: flex;
   margin: 0 auto;
   padding: 0 2.5rem;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .container-img {

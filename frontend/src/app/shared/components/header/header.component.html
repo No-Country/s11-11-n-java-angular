@@ -66,6 +66,56 @@
       <!-- TODO: ADD CART MENU -->
     </div>
 
-    <!-- TODO: ADD BTN BURGER TO RESPONSIVE DESIGN -->
+    <!-- DONE: BTN BURGER TO RESPONSIVE DESIGN -->
+    <div class="container-menu__item burger-menu-btn">
+      <button class="btn-menu">
+        <img
+          width="45"
+          src="assets/images/menu-icons/icon-burger.svg"
+          alt="icon burger"
+        />
+      </button>
+      <!-- DONE: CART MENU -->
+      <nav class="header-menu-modal">
+        <ul class="menu-list-modal">
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/home']"
+              routerLinkActive="active-nav-modal"
+            >
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/products']"
+              routerLinkActive="active-nav-modal"
+            >
+              Productos
+            </a>
+          </li>
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/brands']"
+              routerLinkActive="active-nav-modal"
+            >
+              Marcas
+            </a>
+          </li>
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/accesories']"
+              routerLinkActive="active-nav-modal"
+            >
+              Accesorios
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </nav>
 </header>

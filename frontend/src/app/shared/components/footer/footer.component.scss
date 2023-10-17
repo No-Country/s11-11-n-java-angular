@@ -2,17 +2,46 @@
   font-family: var(--f-2);
   background: var(--bg-gradient-3);
   color: var(--c-1-a);
-  font-size: 18px;
+  font-size: 1rem;
+  padding-left: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-wrap: wrap;
+    padding-right: 0;
+  }
 }
 
-.footer-list__item {
-  &:first-child {
-    padding: 3rem 3rem 1.5rem;
-    background: var(--bg-gradient-2);
+.main-footer__item {
+  padding: 3rem 3rem 1.5rem;
+  background: var(--bg-gradient-2);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.container-images {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
+
+  .container-img {
+    z-index: 1;
+  }
+
+  .before {
+    position: absolute;
+    top: -0.6rem;
+    left: -3rem;
+    width: 5.5rem;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -43,4 +72,54 @@
   /* Sombra APP */
   text-shadow: var(--t-shadow-2);
   font-weight: 400;
+}
+
+.container-footer-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding-top: 3rem; // 11rem para alinearlo a los íconos de redes sociales
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem 3rem 3rem;
+  }
+}
+
+.footer-list__item {
+  width: 165px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+
+  h3 {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        text-decoration: none;
+        color: var(--c-1-b);
+        font-family: var(--f-2);
+        font-size: 1em;
+        font-weight: 400;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
