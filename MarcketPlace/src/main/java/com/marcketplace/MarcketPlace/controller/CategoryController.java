@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * Clase controlador de categorias
- * 
+ *
  * @Autor Damian Della corte
  */
 @Tag(name = "Controlador de categorias")
@@ -31,7 +31,7 @@ public class CategoryController {
 
     /**
      * Guarda el producto
-     * 
+     *
      * @param categoryDTO dto de producto
      * @return respuesta http con estado creado
      * @throws NameExistsException mensaje de excepcion de nombre ya existe en base
@@ -47,7 +47,7 @@ public class CategoryController {
 
     /**
      * Trae todos las categorias de base de datos
-     * 
+     *
      * @param pageable configuracion de paginado
      * @return respuesta http con lista de categorias paginados
      */
@@ -59,7 +59,7 @@ public class CategoryController {
 
     /**
      * Busca una categoria por id y lo actualiza
-     * 
+     *
      * @param categoryDTO datos de categoria a actualizar
      * @return respuesta http con estado sin contenido
      * @throws IdNotFoundException mensaje de excepcion de id no encontrado

@@ -7,15 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDTORes {
+public class PaymentMethodDTORes {
 
     private Long id;
-    private String name;
-    private Double price;
-    private String images;
     /*private User seller;*/
-    private CategoryDTORes category;
-    private String shippingStatus;
-    private int stock;
+    private String name;
+    private String paymentDetails;
 
 }
