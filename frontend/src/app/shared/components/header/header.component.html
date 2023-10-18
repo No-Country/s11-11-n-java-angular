@@ -1,0 +1,121 @@
+<header class="container header-list">
+  <div class="container-img">
+    <img src="assets/images/logo.svg" alt="logo" />
+  </div>
+
+  <nav class="container-nav">
+    <ul class="container-nav-list">
+      <li>
+        <a
+          class="link-menu"
+          [routerLink]="['/home']"
+          routerLinkActive="active-nav"
+        >
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a
+          class="link-menu"
+          [routerLink]="['/products']"
+          routerLinkActive="active-nav"
+        >
+          Productos
+        </a>
+      </li>
+      <li>
+        <a
+          class="link-menu"
+          [routerLink]="['/brands']"
+          routerLinkActive="active-nav"
+        >
+          Marcas
+        </a>
+      </li>
+      <li>
+        <a
+          class="link-menu"
+          [routerLink]="['/accesories']"
+          routerLinkActive="active-nav"
+        >
+          Accesorios
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="container-menu">
+    <div class="container-menu__item search-box">
+      <!-- TODO: Add Search box -->
+      <button class="btn-menu">
+        <img src="assets/images/menu-icons/icon-search.svg" alt="icon search" />
+      </button>
+    </div>
+
+    <div class="container-menu__item">
+      <button class="btn-menu">
+        <img src="assets/images/menu-icons/icon-user.svg" alt="icon user" />
+      </button>
+      <!-- TODO: ADD MENU USER -->
+    </div>
+
+    <div class="container-menu__item">
+      <button class="btn-menu">
+        <img src="assets/images/menu-icons/icon-cart.svg" alt="icon cart" />
+      </button>
+      <!-- TODO: ADD CART MENU -->
+    </div>
+
+    <!-- DONE: BTN BURGER TO RESPONSIVE DESIGN -->
+    <div class="container-menu__item burger-menu-btn">
+      <button class="btn-menu">
+        <img
+          width="45"
+          src="assets/images/menu-icons/icon-burger.svg"
+          alt="icon burger"
+        />
+      </button>
+      <!-- DONE: CART MENU -->
+      <nav class="header-menu-modal">
+        <ul class="menu-list-modal">
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/home']"
+              routerLinkActive="active-nav-modal"
+            >
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/products']"
+              routerLinkActive="active-nav-modal"
+            >
+              Productos
+            </a>
+          </li>
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/brands']"
+              routerLinkActive="active-nav-modal"
+            >
+              Marcas
+            </a>
+          </li>
+          <li>
+            <a
+              class="link-menu-modal"
+              [routerLink]="['/accesories']"
+              routerLinkActive="active-nav-modal"
+            >
+              Accesorios
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+</header>

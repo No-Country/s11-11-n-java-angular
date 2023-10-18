@@ -1,0 +1,140 @@
+.header-list {
+  position: relative;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-gradient-1);
+}
+
+@media (max-width: 768px) {
+  .container-img {
+    width: 80px;
+  }
+}
+
+.container-nav {
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  .container-nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.8rem;
+  }
+
+  .link-menu {
+    text-decoration: none;
+    text-shadow: var(--t-shadow-1);
+    font-family: var(--f-1);
+    font-weight: 600;
+    color: var(--c-1-a);
+    font-size: 1.5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.container-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+
+    .btn-menu {
+      width: 30px !important;
+      height: 30px !important;
+    }
+  }
+
+  .container-menu__item {
+    /* TOD: ADD STYLES BY MENU CONTAINER */
+    position: relative;
+  }
+
+  .btn-menu {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    &:hover {
+      background: rgb(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      background: rgb(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.burger-menu-btn {
+  display: none;
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.btn-menu {
+  &:hover {
+    + .header-menu-modal {
+      display: block;
+    }
+  }
+}
+
+.header-menu-modal {
+  // nav
+  position: absolute;
+  display: none;
+  top: 2.6rem;
+  right: 0;
+  background: var(--c-1-a);
+
+  &:hover {
+    display: block;
+  }
+}
+
+.menu-list-modal {
+  // ul
+  list-style: none;
+}
+
+.link-menu-modal {
+  // a
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  font-family: var(--f-2);
+  font-size: 1.2rem;
+  color: var(--c-1-e);
+  padding: 1.5rem;
+
+  &:hover {
+    background: var(--c-1-c);
+    color: var(--c-1-e);
+  }
+}
+
+.active-nav {
+  text-decoration: underline;
+}
+
+.active-nav-modal {
+  background: var(--c-1-c);
+  color: var(--c-1-e);
+}
