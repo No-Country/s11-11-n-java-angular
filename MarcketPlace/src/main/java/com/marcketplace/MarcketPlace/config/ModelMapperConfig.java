@@ -1,14 +1,14 @@
-package com.marcketplace.MarcketPlace.config;
+// package com.marcketplace.MarcketPlace.config;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+// import org.modelmapper.ModelMapper;
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Configuration;
 
-@Configuration
-public class ModelMapperConfig {
+// @Configuration
+// public class ModelMapperConfig {
     
- @Bean
-    public ModelMapper modelMapper() {
-        return new ModelMapper();
-    }
-} 
+//  @Bean
+//     public ModelMapper modelMapper() {
+//         return new ModelMapper();
+//     }
+// } 

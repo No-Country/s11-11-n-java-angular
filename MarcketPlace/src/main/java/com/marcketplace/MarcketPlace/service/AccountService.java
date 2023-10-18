@@ -4,8 +4,8 @@ package com.marcketplace.MarcketPlace.service;
 import com.marcketplace.MarcketPlace.dto.request.CustomerRegistration;
 import com.marcketplace.MarcketPlace.model.Account;
 import com.marcketplace.MarcketPlace.model.Customers;
-import jakarta.mail.MessagingException;
-import jakarta.transaction.Transactional;
+//import jakarta.mail.MessagingException;
+//import jakarta.transaction.Transactional;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Optional;

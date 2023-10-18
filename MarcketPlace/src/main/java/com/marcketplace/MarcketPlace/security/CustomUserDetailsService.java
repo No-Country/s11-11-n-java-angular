@@ -1,8 +1,5 @@
 package com.marcketplace.MarcketPlace.security;
 
-
-
-
 import com.marcketplace.MarcketPlace.model.Account;
 import com.marcketplace.MarcketPlace.service.AccountService;
 import com.marcketplace.MarcketPlace.util.security.SecurityUtils;
@@ -23,7 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Account user = userService.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("El usuario no fue encontrado:"+email));
+                .orElseThrow(() -> new UsernameNotFoundException("El usuario no fue encontrado:" + email));
 
         Set<GrantedAuthority> authorities = Set.of(SecurityUtils.convertToAuthority(user.getRol().name()));
 

@@ -18,9 +18,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="entity", discriminatorType=DiscriminatorType.STRING)
+@Entity
 @Table(name = "ACCOUNT")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Account implements Serializable {
@@ -53,6 +52,8 @@ public class Account implements Serializable {
     @Transient
     private String token;
     
+    @OneToOne(mappedBy = "account", fetch = FetchType.EAGER)
+    private ShoppingCart cart;
 
     public Account(String email, String password){
         this.accountUuid = UUID.randomUUID().toString();
@@ -65,14 +66,4 @@ public class Account implements Serializable {
     public Account(String email){
         this.email = email;
     }
-    public Object getEntity() {
-        return null;
-    }
-    public Object getDiscriminator() {
-        return null;
-    }
-
-    
 }
- 
-
