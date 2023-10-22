@@ -12,6 +12,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 1.5rem;
+  }
 }
 
 .category__item {

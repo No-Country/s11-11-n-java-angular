@@ -1,4 +1,87 @@
 <header class="container header-list">
+  <div class="sidebar">
+    <button class="btn-sidebar" (click)="showMenu()">
+      <img
+        width="45"
+        src="assets/images/menu-icons/icon-burger.svg"
+        alt="icon burger"
+      />
+    </button>
+    <!-- DONE: SIDEBAR MENU -->
+    <nav
+      class="header-sidebar"
+      [ngClass]="{ showSidebarAnimation: showSidebar }"
+    >
+      <ul class="sidebar-list">
+        <li>
+          <img
+            src="assets/images/menu-icons/icon-sidebar-accessories.svg"
+            alt=""
+          />
+          <a
+            class="link-sidebar"
+            [routerLink]="['/home']"
+            routerLinkActive="active-link-sidebar"
+          >
+            Inicio
+          </a>
+        </li>
+        <li>
+          <img
+            src="assets/images/menu-icons/icon-sidebar-products.svg"
+            alt=""
+          />
+          <a
+            class="link-sidebar"
+            [routerLink]="['/products']"
+            routerLinkActive="active-link-sidebar"
+          >
+            Productos
+          </a>
+        </li>
+        <li>
+          <img src="assets/images/menu-icons/icon-sidebar-brands.svg" alt="" />
+          <a
+            class="link-sidebar"
+            [routerLink]="['/brands']"
+            routerLinkActive="active-link-sidebar"
+          >
+            Marcas
+          </a>
+        </li>
+        <li>
+          <img
+            src="assets/images/menu-icons/icon-sidebar-accessories.svg"
+            alt="icon accessories"
+          />
+          <a
+            class="link-sidebar"
+            [routerLink]="['/accesories']"
+            routerLinkActive="active-link-sidebar"
+          >
+            Accesorios
+          </a>
+        </li>
+      </ul>
+      <div class="auth-links">
+        <a
+          class="link-sidebar"
+          [routerLink]="['/auth/login']"
+          routerLinkActive="active-link-sidebar"
+        >
+          Iniciar sesión
+        </a>
+        /
+        <a
+          class="link-sidebar"
+          [routerLink]="['/auth/register']"
+          routerLinkActive="active-link-sidebar"
+        >
+          Registrarse
+        </a>
+      </div>
+    </nav>
+  </div>
   <div class="container-img">
     <img src="assets/images/logo.svg" alt="logo" />
   </div>
@@ -67,55 +150,5 @@
     </div>
 
     <!-- DONE: BTN BURGER TO RESPONSIVE DESIGN -->
-    <div class="container-menu__item burger-menu-btn">
-      <button class="btn-menu">
-        <img
-          width="45"
-          src="assets/images/menu-icons/icon-burger.svg"
-          alt="icon burger"
-        />
-      </button>
-      <!-- DONE: CART MENU -->
-      <nav class="header-menu-modal">
-        <ul class="menu-list-modal">
-          <li>
-            <a
-              class="link-menu-modal"
-              [routerLink]="['/home']"
-              routerLinkActive="active-nav-modal"
-            >
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a
-              class="link-menu-modal"
-              [routerLink]="['/products']"
-              routerLinkActive="active-nav-modal"
-            >
-              Productos
-            </a>
-          </li>
-          <li>
-            <a
-              class="link-menu-modal"
-              [routerLink]="['/brands']"
-              routerLinkActive="active-nav-modal"
-            >
-              Marcas
-            </a>
-          </li>
-          <li>
-            <a
-              class="link-menu-modal"
-              [routerLink]="['/accesories']"
-              routerLinkActive="active-nav-modal"
-            >
-              Accesorios
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
   </nav>
 </header>
