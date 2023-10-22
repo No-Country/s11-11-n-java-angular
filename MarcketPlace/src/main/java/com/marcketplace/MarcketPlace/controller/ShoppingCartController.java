@@ -24,9 +24,34 @@ public class ShoppingCartController {
     
     @PostMapping
     @RequestMapping(value = "createProduct", method = RequestMethod.POST)
-     private ResponseEntity<?> createProduct(@RequestBody Product produc){
-         Product cartProduct = this.cartImpl.createProduct(produc);
-         return ResponseEntity.status(HttpStatus.CREATED).body(produc);
+     private ResponseEntity<?> createProduct(@RequestBody Product product){
+             
+         if(product.getName() == null || 
+            product.getName().isEmpty() ||
+            product.getName().isBlank()) 
+         {
+            return new ResponseEntity<>("Name can't be empty", HttpStatus.BAD_REQUEST);
+         }
+         
+         if (product.getDescription() == null || 
+             product.getDescription().isBlank() ||
+             product.getDescription().isEmpty()) 
+         {
+             return new ResponseEntity<>("Description can't be empty", HttpStatus.BAD_REQUEST);
+         }
+         
+         if (product.getPrice() == null) 
+         {
+         return new ResponseEntity<>("Price can't be empty", HttpStatus.BAD_REQUEST);    
+         }
+         
+//         if (product.getPrice().matches("\\d+")) 
+//         {
+//         return new ResponseEntity<>("Price must contain only digits", HttpStatus.NOT_ACCEPTABLE);    
+//         }
+         
+         Product cartProduct = this.cartImpl.createProduct(product);
+         return ResponseEntity.status(HttpStatus.CREATED).body(product);
      }
 
      @PutMapping
