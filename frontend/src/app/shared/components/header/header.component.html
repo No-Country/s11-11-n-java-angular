@@ -130,7 +130,7 @@
   <nav class="container-menu">
     <div class="container-menu__item search-box">
       <!-- TODO: Add Search box -->
-      <button class="btn-menu">
+      <button class="btn-menu" (click)="showSearch()">
         <img src="assets/images/menu-icons/icon-search.svg" alt="icon search" />
       </button>
     </div>
@@ -152,3 +152,8 @@
     <!-- DONE: BTN BURGER TO RESPONSIVE DESIGN -->
   </nav>
 </header>
+<shared-search-box
+  class="shared-search-box"
+  [ngClass]="{ 'show-search-box': showSearchBox }"
+  (keyup.esc)="hideSearch()"
+/>
