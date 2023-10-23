@@ -13,11 +13,22 @@ const routes: Routes = [
           import('../pages/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: '',
-        redirectTo: 'home',
+        path: 'search', // http://localhost:4200/quantum/search
+        loadChildren: () =>
+          import('../pages/search-results/search-results.module').then(
+            (m) => m.SearchResultsModule
+          ),
+      },
+      {
+        path: '', // http://localhost:4200/quantum
+        redirectTo: 'search',
         pathMatch: 'full',
       },
     ],
+  },
+  {
+    path: '**', // http://localhost:4200/quantum/any...
+    redirectTo: '',
   },
 ];
 
