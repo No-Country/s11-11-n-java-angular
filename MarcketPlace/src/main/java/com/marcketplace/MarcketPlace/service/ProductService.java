@@ -4,6 +4,7 @@ import com.marcketplace.MarcketPlace.dto.request.ProductDTOReq;
 import com.marcketplace.MarcketPlace.dto.response.ProductDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
 import com.marcketplace.MarcketPlace.exception.NameExistsException;
+import com.marcketplace.MarcketPlace.model.Category;
 import com.marcketplace.MarcketPlace.model.Product;
 
 import com.marcketplace.MarcketPlace.repository.AccountRepository;
@@ -18,6 +19,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService implements IProductService{
@@ -49,9 +52,9 @@ public class ProductService implements IProductService{
         if (!categoryRepository.existsById(productDTO.getCategory().getId())){
             throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
         }
-        if (productRepository.existsByName(productDTO.getName())) {
-            throw new NameExistsException("El nombre " + productDTO.getName() + " ya existe. Ingrese un nuevo nombre");
-        }
+        // if (productRepository.existsByName(productDTO.getName())) {
+        //     throw new NameExistsException("El nombre " + productDTO.getName() + " ya existe. Ingrese un nuevo nombre");
+        // }
         //convierte la primer letra de cada palabra en mayúscula
         productDTO.setName(wordsConverter.capitalizeWords(productDTO.getName()));
 
@@ -119,4 +122,8 @@ public class ProductService implements IProductService{
     public void deleteProduct(Long productID) {
         productRepository.deleteById(productID);
     }
+
+
+
+
 }

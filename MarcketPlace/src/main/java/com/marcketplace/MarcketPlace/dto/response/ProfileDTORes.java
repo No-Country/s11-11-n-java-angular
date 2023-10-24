@@ -20,8 +20,8 @@ public class ProfileDTORes {
     private String accountUuid;
     private String email;
     private String rol;
-    private String token;
-    private String tokenPassword;
+    // private String token;
+    // private String tokenPassword;
 
 
     

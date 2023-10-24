@@ -2,24 +2,24 @@ package com.marcketplace.MarcketPlace.service;
 
 import java.util.List;
 
-import javax.management.Query;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.stereotype.Service;
 
 import com.marcketplace.MarcketPlace.dto.request.ProfileUpdateDTO;
-import com.marcketplace.MarcketPlace.dto.response.ProductDTORes;
+
 import com.marcketplace.MarcketPlace.dto.response.ProfileDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
 import com.marcketplace.MarcketPlace.exception.NameExistsException;
-import com.marcketplace.MarcketPlace.model.Account;
+
 import com.marcketplace.MarcketPlace.model.Customers;
-import com.marcketplace.MarcketPlace.model.Product;
-import com.marcketplace.MarcketPlace.repository.AccountRepository;
+
+// import com.marcketplace.MarcketPlace.repository.AccountRepository;
 import com.marcketplace.MarcketPlace.repository.CustomerRepository;
 
-import jakarta.persistence.NoResultException;
+
 
 import org.modelmapper.ModelMapper;
 
@@ -29,8 +29,8 @@ public class ProfileService implements IProfileService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @Autowired
-    private AccountRepository accountRepository;
+    // @Autowired
+    // private AccountRepository accountRepository;
 
     @Autowired
     private ModelMapper modelMapper;
