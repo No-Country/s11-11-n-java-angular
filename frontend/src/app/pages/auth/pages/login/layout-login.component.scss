@@ -56,7 +56,7 @@ span {
   display: flex;
   justify-content: center;
 
-  margin-top: 3rem;
+  margin-top: 10px;
   padding-bottom: 5px;
 }
 input {
@@ -74,9 +74,9 @@ button {
   display: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #81accf; /* Green */
+  background-color: #44085c; /* Green */
   border: none;
-  color: rgb(5, 5, 5);
+  color: rgb(253, 253, 253);
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -87,8 +87,21 @@ button {
   font-family: 'Kanit', sans-serif;
   font-family: 'Montserrat', sans-serif;
 }
+button:hover {
+  background-color: rgb(207, 74, 156) ;
+  color: white;
+  cursor: pointer;
+}
 
 h1 {
   color: white;
   display: center;
+}
+.session_init{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top:5px;
+
 }
