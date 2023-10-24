@@ -79,7 +79,7 @@ public class FilterService implements IFilterService {
         if (categoryName != null) {
             String searchCategoryLower = categoryName.toLowerCase();
             products = products.stream()
-                    .filter(product -> product.getCategory().getName().toLowerCase().contains(searchCategoryLower))
+                    .filter(product -> product.getCategory().getName().toLowerCase().contains (searchCategoryLower))
                     .collect(Collectors.toList());
         }
 
