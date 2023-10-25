@@ -58,7 +58,7 @@ export class LayoutLoginComponent {
     this.loginService.Login(user).subscribe({
       next: () => {
         this.notifySvc.showSuccess('Login correcto', 'Bienvenido');
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
       },
       error: (err) => {
         this.notifySvc.showError(
