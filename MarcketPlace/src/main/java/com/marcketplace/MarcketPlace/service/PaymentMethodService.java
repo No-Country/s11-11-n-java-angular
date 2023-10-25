@@ -5,6 +5,7 @@ import com.marcketplace.MarcketPlace.dto.response.PaymentMethodDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
 import com.marcketplace.MarcketPlace.exception.NameExistsException;
 import com.marcketplace.MarcketPlace.model.PaymentMethod;
+import com.marcketplace.MarcketPlace.repository.CustomerRepository;
 import com.marcketplace.MarcketPlace.repository.IPaymentMethodRepository;
 import com.marcketplace.MarcketPlace.util.IWordsConverter;
 import org.modelmapper.ModelMapper;
@@ -21,8 +22,8 @@ public class PaymentMethodService implements IPaymentMethodService{
 
     @Autowired
     private IPaymentMethodRepository paymentMethodRepository;
-    //@Autowired
-    //private IUserRepository userRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
     @Autowired
     private IWordsConverter wordsConverter;
     @Autowired
@@ -35,9 +36,9 @@ public class PaymentMethodService implements IPaymentMethodService{
      */
     @Override
     public void savePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws NameExistsException, IdNotFoundException {
-//        if (!userRepository.existsById(paymentMethodDTO.getUser().getId())){
-//            throw new IdNotFoundException("El usuario ingresado no se encuentra registrado");
-//        }
+        if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){
+            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
+        }
         if (paymentMethodRepository.existsByName(paymentMethodDTO.getName())) {
             throw new NameExistsException("El nombre " + paymentMethodDTO.getName() + " ya existe. Ingrese un nuevo nombre");
         }
@@ -85,12 +86,8 @@ public class PaymentMethodService implements IPaymentMethodService{
     public void updatePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException, NameExistsException {
         var paymentMethodDB = paymentMethodRepository.findById(paymentMethodDTO.getId())
                 .orElseThrow(() -> new IdNotFoundException("El id " + paymentMethodDTO + " no existe. Ingrese un nuevo id"));
-        /*if (!userRepository.existsById(paymentMethodDTO.getUser().getId())){
-            throw new IdNotFoundException("El usuario ingresado no se encuentra registrado");
-        }*/
-        //valida que el nombre del metodo de pago no exista y si existe que coincida con el metodo de pago encontrado
-        if (!paymentMethodDTO.getName().equals(paymentMethodDB.getName()) && paymentMethodRepository.existsByName(paymentMethodDTO.getName())) {
-            throw new NameExistsException("El nombre " + paymentMethodDTO.getName() + " ya existe. Ingrese un nuevo nombre");
+        if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){
+            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         //convierte la primer letra de cada palabra en mayúscula
         paymentMethodDTO.setName(wordsConverter.capitalizeWords(paymentMethodDTO.getName()));

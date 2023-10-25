@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 public class PaymentMethodDTOReq {
 
     private Long id;
-    /*  @NotNull(message = "No puede estar vacio")
-        private UserDTOReq seller;*/
+    @NotNull(message = "No puede estar vacio")
+    private CustomerRegistration seller;
     @NotNull(message = "No puede estar vacio")
     private String name;
     @NotNull(message = "No puede estar vacio")

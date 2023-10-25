@@ -1,5 +1,6 @@
 package com.marcketplace.MarcketPlace.dto.response;
 
+import com.marcketplace.MarcketPlace.model.Customers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class PaymentMethodDTORes {
 
     private Long id;
-    /*private User seller;*/
+    private Customers seller;
     private String name;
     private String paymentDetails;
 

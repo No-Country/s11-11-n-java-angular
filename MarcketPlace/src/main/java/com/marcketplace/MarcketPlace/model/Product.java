@@ -19,10 +19,10 @@ public class Product {
     private String description;
     private Double price;
     private String images;
-    /*    @ManyToOne
-        @JoinColumn(name = "sellerID")
-        @JsonIgnoreProperties("products")
-        private User seller;*/
+    @ManyToOne
+    @JoinColumn(name = "sellerID")
+    @JsonIgnoreProperties("products")
+    private Customers seller;
     @ManyToOne
     @JoinColumn(name = "categoryID")
     @JsonIgnoreProperties("products")
