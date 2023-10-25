@@ -1,0 +1,29 @@
+<main>
+  <section class="container hero">
+    <div class="container-img">
+      <img src="assets/images/home-img/hero.png" alt="hero image" />
+    </div>
+  </section>
+
+  <section class="container container-category">
+    <div class="category__item" *ngFor="let category of categoryList">
+      <div class="category__item-img">
+        <img [src]="category.urlImg" [alt]="category.title" />
+      </div>
+      <div class="category__item-title">
+        <h3>{{ category.title }}</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container-premieres">
+    <h2 class="title-section">Estrenos:</h2>
+    <div
+      class="premieres__item"
+      *ngFor="let premiere of premiereList | slice: 0 : 5"
+    >
+      <!-- TODO: add product-card component -->
+      TODO: add product-card component
+    </div>
+  </section>
+</main>

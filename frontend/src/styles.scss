@@ -1,4 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(assets/styles/root.scss);
+@import url(assets/styles/fonts.scss);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html,
 body {
@@ -6,7 +13,24 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.container-img {
+  width: 100px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 

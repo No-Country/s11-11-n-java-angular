@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr'; // Importamos el módulo ToastrModule
 import { LoginModule } from './pages/auth/pages/login/login.module';
+import { HomeModule } from './pages/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
+    HomeModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
