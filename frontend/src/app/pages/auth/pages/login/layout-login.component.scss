@@ -88,7 +88,7 @@ button {
   font-family: 'Montserrat', sans-serif;
 }
 button:hover {
-  background-color: rgb(207, 74, 156) ;
+  background-color: rgb(207, 74, 156);
   color: white;
   cursor: pointer;
 }
@@ -97,11 +97,10 @@ h1 {
   color: white;
   display: center;
 }
-.session_init{
+.session_init {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top:5px;
-
+  padding-top: 5px;
 }
