@@ -3,7 +3,6 @@ package com.marcketplace.MarcketPlace.service;
 import com.marcketplace.MarcketPlace.dto.request.PaymentMethodDTOReq;
 import com.marcketplace.MarcketPlace.dto.response.PaymentMethodDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
-import com.marcketplace.MarcketPlace.exception.NameExistsException;
 import com.marcketplace.MarcketPlace.model.PaymentMethod;
 import com.marcketplace.MarcketPlace.repository.CustomerRepository;
 import com.marcketplace.MarcketPlace.repository.IPaymentMethodRepository;
@@ -32,15 +31,11 @@ public class PaymentMethodService implements IPaymentMethodService{
     /**
      * Guarda un metodo de pago en base de datos
      * @param paymentMethodDTO dto de metodo de pago
-     * @throws NameExistsException mensaje de excepcion de nombre de metodo de pago ya existe
      */
     @Override
-    public void savePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws NameExistsException, IdNotFoundException {
+    public void savePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException {
         if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
-        }
-        if (paymentMethodRepository.existsByName(paymentMethodDTO.getName())) {
-            throw new NameExistsException("El nombre " + paymentMethodDTO.getName() + " ya existe. Ingrese un nuevo nombre");
         }
         //convierte la primer letra de cada palabra en mayúscula
         paymentMethodDTO.setName(wordsConverter.capitalizeWords(paymentMethodDTO.getName()));
@@ -80,10 +75,9 @@ public class PaymentMethodService implements IPaymentMethodService{
      * Actualiza un metodo de pago por id en base de datos
      * @param paymentMethodDTO dto de metodo de pago
      * @throws IdNotFoundException mensaje de excepcion de id de metodo de pago no encontrado
-     * @throws NameExistsException mensaje de excepcion de nombre de metodo de pago ya exsiste
      */
     @Override
-    public void updatePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException, NameExistsException {
+    public void updatePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException {
         var paymentMethodDB = paymentMethodRepository.findById(paymentMethodDTO.getId())
                 .orElseThrow(() -> new IdNotFoundException("El id " + paymentMethodDTO + " no existe. Ingrese un nuevo id"));
         if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){

@@ -16,7 +16,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "scustomerID")
+    @JoinColumn(name = "customerID")
     @JsonIgnoreProperties("products")
     private Customers customer;
     @ManyToOne
