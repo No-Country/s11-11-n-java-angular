@@ -3,8 +3,8 @@ package com.marcketplace.MarcketPlace.service;
 import com.marcketplace.MarcketPlace.dto.request.PaymentMethodDTOReq;
 import com.marcketplace.MarcketPlace.dto.response.PaymentMethodDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
-import com.marcketplace.MarcketPlace.exception.NameExistsException;
 import com.marcketplace.MarcketPlace.model.PaymentMethod;
+import com.marcketplace.MarcketPlace.repository.CustomerRepository;
 import com.marcketplace.MarcketPlace.repository.IPaymentMethodRepository;
 import com.marcketplace.MarcketPlace.util.IWordsConverter;
 import org.modelmapper.ModelMapper;
@@ -21,8 +21,8 @@ public class PaymentMethodService implements IPaymentMethodService{
 
     @Autowired
     private IPaymentMethodRepository paymentMethodRepository;
-    //@Autowired
-    //private IUserRepository userRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
     @Autowired
     private IWordsConverter wordsConverter;
     @Autowired
@@ -31,15 +31,11 @@ public class PaymentMethodService implements IPaymentMethodService{
     /**
      * Guarda un metodo de pago en base de datos
      * @param paymentMethodDTO dto de metodo de pago
-     * @throws NameExistsException mensaje de excepcion de nombre de metodo de pago ya existe
      */
     @Override
-    public void savePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws NameExistsException, IdNotFoundException {
-//        if (!userRepository.existsById(paymentMethodDTO.getUser().getId())){
-//            throw new IdNotFoundException("El usuario ingresado no se encuentra registrado");
-//        }
-        if (paymentMethodRepository.existsByName(paymentMethodDTO.getName())) {
-            throw new NameExistsException("El nombre " + paymentMethodDTO.getName() + " ya existe. Ingrese un nuevo nombre");
+    public void savePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException {
+        if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){
+            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         //convierte la primer letra de cada palabra en mayúscula
         paymentMethodDTO.setName(wordsConverter.capitalizeWords(paymentMethodDTO.getName()));
@@ -79,18 +75,13 @@ public class PaymentMethodService implements IPaymentMethodService{
      * Actualiza un metodo de pago por id en base de datos
      * @param paymentMethodDTO dto de metodo de pago
      * @throws IdNotFoundException mensaje de excepcion de id de metodo de pago no encontrado
-     * @throws NameExistsException mensaje de excepcion de nombre de metodo de pago ya exsiste
      */
     @Override
-    public void updatePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException, NameExistsException {
+    public void updatePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException {
         var paymentMethodDB = paymentMethodRepository.findById(paymentMethodDTO.getId())
                 .orElseThrow(() -> new IdNotFoundException("El id " + paymentMethodDTO + " no existe. Ingrese un nuevo id"));
-        /*if (!userRepository.existsById(paymentMethodDTO.getUser().getId())){
-            throw new IdNotFoundException("El usuario ingresado no se encuentra registrado");
-        }*/
-        //valida que el nombre del metodo de pago no exista y si existe que coincida con el metodo de pago encontrado
-        if (!paymentMethodDTO.getName().equals(paymentMethodDB.getName()) && paymentMethodRepository.existsByName(paymentMethodDTO.getName())) {
-            throw new NameExistsException("El nombre " + paymentMethodDTO.getName() + " ya existe. Ingrese un nuevo nombre");
+        if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){
+            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         //convierte la primer letra de cada palabra en mayúscula
         paymentMethodDTO.setName(wordsConverter.capitalizeWords(paymentMethodDTO.getName()));

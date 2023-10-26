@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentMethodDTOReq {
-
+public class ReviewDTOReq {
     private Long id;
     @NotNull(message = "No puede estar vacio")
+    private CustomerRegistration customer;
+    @NotNull(message = "No puede estar vacio")
     private CustomerRegistration seller;
-    @NotNull(message = "No puede estar vacio")
-    private String name;
-    @NotNull(message = "No puede estar vacio")
-    private String paymentDetails;
+    private Integer rating;
+    private String comment;
+
 }
