@@ -38,12 +38,12 @@ public class ProductService implements IProductService{
      */
     @Override
     public void saveProduct(ProductDTOReq productDTO) throws IdNotFoundException {
-       if (!customerRepository.existsById(productDTO.getSeller().getEmail())){
+        if (!customerRepository.existsById(productDTO.getSeller().getEmail())){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
-       if (!categoryRepository.existsById(productDTO.getCategory().getId())){
-           throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
-       }
+        if (!categoryRepository.existsById(productDTO.getCategory().getId())){
+            throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
+        }
         //convierte la primer letra de cada palabra en mayúscula
         productDTO.setName(wordsConverter.capitalizeWords(productDTO.getName()));
 
