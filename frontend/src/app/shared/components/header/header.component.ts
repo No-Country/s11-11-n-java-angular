@@ -7,8 +7,19 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   showSidebar = false;
+  showSearchBox = false;
 
   showMenu() {
     this.showSidebar = !this.showSidebar;
+    this.showSearchBox = false;
+  }
+
+  showSearch() {
+    this.showSearchBox = !this.showSearchBox;
+    this.showSidebar = false;
+  }
+
+  hideSearch() {
+    this.showSearchBox = false;
   }
 }

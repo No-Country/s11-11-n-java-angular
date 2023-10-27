@@ -1,0 +1,28 @@
+<div class="product-card">
+  <div class="container-img">
+    <img [src]="product.img" [alt]="product.name" [title]="product.name" />
+  </div>
+  <div class="container-info">
+    <h3 class="title">{{ product.name | uppercase }}</h3>
+    <p class="subtitle">{{ product.description | uppercase }}</p>
+  </div>
+  <div class="container-footer">
+    <p class="price">{{ product.price | currency }}</p>
+    <div class="container-actions">
+      <button class="btn-to-add">
+        <img
+          class="icon-btn-to-add"
+          src="assets/images/add-cart.svg"
+          alt="add cart"
+        />
+      </button>
+      <button class="btn-to-add">
+        <img
+          class="icon-btn-to-add"
+          src="assets/images/add-wish.svg"
+          alt="add cart"
+        />
+      </button>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,8 @@ import { LoginModule } from './pages/auth/pages/login/login.module';
 import { HomeModule } from './pages/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { SearchResultsComponent } from './pages/search-results/search-results.component';
+import { SearchResultsModule } from './pages/search-results/search-results.module';
 
 @NgModule({
   declarations: [AppComponent, ProductDetailsComponent],
@@ -20,6 +22,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
     BrowserAnimationsModule,
     LoginModule,
     HomeModule,
+    SearchResultsModule,
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,

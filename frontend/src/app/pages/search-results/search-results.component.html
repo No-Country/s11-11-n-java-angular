@@ -1,0 +1,24 @@
+<section class="container">
+  <div class="row">
+    <h3 class="title">Resultados de tu búsqueda</h3>
+    <p class="subtitle">
+      ¡Genial! Hemos encontrado
+      <span class="product-length">{{ productLength }}</span> producto{{
+        productLength > 1 ? 's' : ''
+      }}
+      a partir de tu búsqueda
+    </p>
+  </div>
+</section>
+
+<section class="container container-filters">
+  <p style="margin: 0 auto 2rem">TODO: Add filters</p>
+</section>
+
+<section class="container">
+  <product-list />
+</section>
+
+<section class="container container-pagination">
+  <p style="margin: 2rem auto">TODO: Add pagination</p>
+</section>
