@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotifyService {
-  constructor(public toastrSvc: ToastrService) {}
+  constructor(private matsnack: MatSnackBar) {}
 
   showSuccess(message: string, title: string) {
-    this.toastrSvc.success(message, title);
+    this.matsnack.open(message, title);
   }
 
   showError(message: string, title: string) {
-    this.toastrSvc.error(message, title);
+    this.matsnack.open(message, title);
   }
 }

@@ -10,9 +10,10 @@ import { MaterialModule } from './material/material.module';
 import { LoginModule } from './pages/auth/pages/login/login.module';
 import { HomeModule } from './pages/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
