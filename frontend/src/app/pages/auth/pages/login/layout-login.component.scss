@@ -17,7 +17,7 @@
   );
   margin: 30%;
   border-radius: 5% 5% 5% 5%;
-  margin-top: 5rem;
+  margin-top: 7rem;
   width: 460px;
   height: 440px;
 }
@@ -103,4 +103,12 @@ h1 {
   align-items: center;
   flex-direction: column;
   padding-top: 5px;
+}
+
+.session_init a {
+  color: white;
+  font-size: 12px;
+  font-family: 'Gabarito', sans-serif;
+  font-family: 'Kanit', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }

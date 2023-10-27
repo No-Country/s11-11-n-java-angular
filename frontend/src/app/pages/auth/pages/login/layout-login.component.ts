@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../../../../services/login.service';
-import { NotifyService } from '../../../../services/notify.service';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Login } from '../../../../shared/models/login.model';
 
@@ -21,7 +22,8 @@ export class LayoutLoginComponent {
 
   constructor(
     private loginService: LoginService,
-    private notifySvc: NotifyService,
+
+    private snackBar: MatSnackBar,
     private router: Router
   ) {}
 
@@ -48,7 +50,8 @@ export class LayoutLoginComponent {
   onSubmit() {
     if (!this.loginForm.valid) {
       // Realizar la lógica de inicio de sesión
-      this.notifySvc.showError('Formulario inválido', 'Error con tus datos');
+      this.snackBar.open('Formulario inválido', 'Error con tus datos');
+
       return;
     }
     const user: Login = {
@@ -57,14 +60,11 @@ export class LayoutLoginComponent {
     };
     this.loginService.Login(user).subscribe({
       next: () => {
-        this.notifySvc.showSuccess('Login correcto', 'Bienvenido');
+        this.snackBar.open('Login correcto', 'Bienvenido');
         this.router.navigate(['']);
       },
       error: (err) => {
-        this.notifySvc.showError(
-          'Error al iniciar sesión',
-          'Error con tus datos'
-        );
+        this.snackBar.open('Error al iniciar sesión', 'Error con tus datos');
       },
     });
   }
