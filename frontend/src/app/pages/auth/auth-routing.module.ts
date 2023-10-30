@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
+import { ProductsModule } from '../../core/products/products.module';
+
+import { ProductCardComponent } from 'src/app/core/products/components/product-card/product-card.component';
 
 const routes: Routes = [
   {
@@ -17,20 +20,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/login/login.module').then((m) => m.LoginModule),
       },
-      /* {
-        path: 'register',
+      {
+        path: 'products',
         loadChildren: () =>
-          import('./pages/register/register.module').then(
-            (m) => m.RegisterModule
+          import('../../core/products/products.module').then(
+            (m) => m.ProductsModule
           ),
       },
-      {
-        path: 'register-gamer',
-        loadChildren: () =>
-          import('./pages/register-doctor/register-doctor.module').then(
-            (m) => m.RegisterDoctorModule
-          ),
-      }, */
     ],
   },
 ];
