@@ -38,7 +38,7 @@ public class ProductService implements IProductService{
      */
     @Override
     public void saveProduct(ProductDTOReq productDTO) throws IdNotFoundException {
-        if (!customerRepository.existsById(productDTO.getSeller().getEmail())){
+        if (customerRepository.findByEmail(productDTO.getSeller().getEmail()).isEmpty()){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         if (!categoryRepository.existsById(productDTO.getCategory().getId())){
