@@ -34,7 +34,7 @@ public class ReviewService implements IReviewService{
      */
     @Override
     public void saveReview(ReviewDTOReq reviewDTO) throws IdNotFoundException {
-        if (!customerRepository.existsById(reviewDTO.getSeller().getEmail())){
+        if (customerRepository.findByEmail(reviewDTO.getSeller().getEmail()).isEmpty()){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         //convierte la primer letra de cada palabra en mayúscula
@@ -42,7 +42,7 @@ public class ReviewService implements IReviewService{
 
         reviewRepository.save(modelMapper.map(reviewDTO, Review.class));
     }
-
+ 
     /**
      * Busca y devuelve una reseña por id
      * @param reviewId numero de id de reseña
@@ -80,7 +80,7 @@ public class ReviewService implements IReviewService{
     public void updateReview(ReviewDTOReq reviewDTO) throws IdNotFoundException {
         var reviewDB = reviewRepository.findById(reviewDTO.getId())
                 .orElseThrow(() -> new IdNotFoundException("El id " + reviewDTO + " no existe. Ingrese un nuevo id"));
-        if (!customerRepository.existsById(reviewDTO.getSeller().getEmail())){
+        if (customerRepository.findByEmail(reviewDTO.getSeller().getEmail()).isEmpty()){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         //convierte la primer letra de cada palabra en mayúscula
