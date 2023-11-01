@@ -1,5 +1,6 @@
 package com.marcketplace.MarcketPlace.dto.response;
 
+import com.marcketplace.MarcketPlace.model.Customers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ public class ProductDTORes {
     private String name;
     private Double price;
     private String images;
-    /*private User seller;*/
+    private Customers seller;
     private CategoryDTORes category;
     private String shippingStatus;
     private int stock;

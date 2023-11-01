@@ -7,19 +7,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "paymentMethods")
+@Table(name = "review")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentMethod {
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
+    @JoinColumn(name = "customerID")
+    @JsonIgnoreProperties("products")
+    private Customers customer;
+    @ManyToOne
     @JoinColumn(name = "sellerID")
     @JsonIgnoreProperties("products")
     private Customers seller;
-    private String name;
-    private String paymentDetails;
+    private Integer rating;
+    private String comment;
 
 }

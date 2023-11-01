@@ -19,8 +19,8 @@ public class ProductDTOReq {
     private Double price;
     @NotNull(message = "No puede estar vacio")
     private String images;
-    /*    @NotNull(message = "No puede estar vacio")
-        private UserDTOReq seller;*/
+    @NotNull(message = "El Seller no puede estar vacio")
+    private CustomerRegistration seller;
     @NotNull(message = "No puede estar vacio")
     private CategoryDTOReq category;
     @NotNull(message = "No puede estar vacio")

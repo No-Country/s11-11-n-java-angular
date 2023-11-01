@@ -5,9 +5,10 @@ import com.marcketplace.MarcketPlace.dto.response.ProductDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
 import com.marcketplace.MarcketPlace.exception.NameExistsException;
 import com.marcketplace.MarcketPlace.model.Category;
+import com.marcketplace.MarcketPlace.model.Customers;
 import com.marcketplace.MarcketPlace.model.Product;
-
 import com.marcketplace.MarcketPlace.repository.AccountRepository;
+import com.marcketplace.MarcketPlace.repository.CustomerRepository;
 import com.marcketplace.MarcketPlace.repository.ICategoryRepository;
 import com.marcketplace.MarcketPlace.repository.IProductRepository;
 import com.marcketplace.MarcketPlace.util.IWordsConverter;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,8 +29,8 @@ public class ProductService implements IProductService{
 
     @Autowired
     private IProductRepository productRepository;
-    // @Autowired
-    // private IUserRepository userRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
     @Autowired
     private ICategoryRepository categoryRepository;
     @Autowired
@@ -42,19 +44,21 @@ public class ProductService implements IProductService{
     /**
      * Guarda un producto en base de datos
      * @param productDTO dto de producto
-     * @throws NameExistsException mensaje de excepcion de nombre de producto ya existe
      */
-   @Override
-    public void saveProduct(ProductDTOReq productDTO) throws NameExistsException, IdNotFoundException {
-        // if (!accountRepository.existsById(productDTO.getUser().getId())){
+    @Override
+    public void saveProduct(ProductDTOReq productDTO) throws IdNotFoundException {
+
+        Optional<Customers> optionalCustomer = customerRepository.findByEmail(productDTO.getSeller().getEmail());
+if (!optionalCustomer.isPresent()) {
+    throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
+}
+
+        // if (!customerRepository.findByEmail(productDTO.getSeller().getEmail())){
         //     throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         // }
         if (!categoryRepository.existsById(productDTO.getCategory().getId())){
             throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
         }
-        // if (productRepository.existsByName(productDTO.getName())) {
-        //     throw new NameExistsException("El nombre " + productDTO.getName() + " ya existe. Ingrese un nuevo nombre");
-        // }
         //convierte la primer letra de cada palabra en mayúscula
         productDTO.setName(wordsConverter.capitalizeWords(productDTO.getName()));
 
@@ -99,9 +103,9 @@ public class ProductService implements IProductService{
     public void updateProduct(ProductDTOReq productDTO) throws IdNotFoundException, NameExistsException {
         var productDB = productRepository.findById(productDTO.getId())
                 .orElseThrow(() -> new IdNotFoundException("El id " + productDTO + " no existe. Ingrese un nuevo id"));
-        /*if (!userRepository.existsById(productDTO.getUser().getId())){
+        if (!customerRepository.existsById(productDTO.getSeller().getEmail())){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
-        }*/
+        }
         if (!categoryRepository.existsById(productDTO.getCategory().getId())){
             throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
         }

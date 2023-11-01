@@ -1,8 +1,5 @@
 package com.marcketplace.MarcketPlace.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,22 +19,15 @@ public class Product {
     private String description;
     private Double price;
     private String images;
-    /*
-     * @ManyToOne
-     * 
-     * @JoinColumn(name = "sellerID")
-     * 
-     * @JsonIgnoreProperties("products")
-     * private User seller;
-     */
+    @ManyToOne
+    @JoinColumn(name = "sellerID")
+    @JsonIgnoreProperties("products")
+    private Customers seller;
     @ManyToOne
     @JoinColumn(name = "categoryID")
     @JsonIgnoreProperties("products")
     private Category category;
     private String shippingStatus;
     private int stock;
-
-    @ManyToMany(mappedBy = "wishlist")
-    private Set<Customers> customers = new HashSet<>();
 
 }
