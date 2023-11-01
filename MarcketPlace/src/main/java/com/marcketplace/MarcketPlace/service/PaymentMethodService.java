@@ -34,7 +34,7 @@ public class PaymentMethodService implements IPaymentMethodService{
      */
     @Override
     public void savePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException {
-        if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){
+        if (customerRepository.findByEmail(paymentMethodDTO.getSeller().getEmail()).isEmpty()){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         //convierte la primer letra de cada palabra en mayúscula
@@ -80,7 +80,7 @@ public class PaymentMethodService implements IPaymentMethodService{
     public void updatePaymentMethod(PaymentMethodDTOReq paymentMethodDTO) throws IdNotFoundException {
         var paymentMethodDB = paymentMethodRepository.findById(paymentMethodDTO.getId())
                 .orElseThrow(() -> new IdNotFoundException("El id " + paymentMethodDTO + " no existe. Ingrese un nuevo id"));
-        if (!customerRepository.existsById(paymentMethodDTO.getSeller().getEmail())){
+        if (customerRepository.findByEmail(paymentMethodDTO.getSeller().getEmail()).isEmpty()){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         //convierte la primer letra de cada palabra en mayúscula

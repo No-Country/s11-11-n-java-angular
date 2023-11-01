@@ -47,15 +47,9 @@ public class ProductService implements IProductService{
      */
     @Override
     public void saveProduct(ProductDTOReq productDTO) throws IdNotFoundException {
-
-        Optional<Customers> optionalCustomer = customerRepository.findByEmail(productDTO.getSeller().getEmail());
-if (!optionalCustomer.isPresent()) {
-    throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
-}
-
-        // if (!customerRepository.findByEmail(productDTO.getSeller().getEmail())){
-        //     throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
-        // }
+        if (customerRepository.findByEmail(productDTO.getSeller().getEmail()).isEmpty()){
+            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
+        }
         if (!categoryRepository.existsById(productDTO.getCategory().getId())){
             throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
         }
@@ -103,7 +97,7 @@ if (!optionalCustomer.isPresent()) {
     public void updateProduct(ProductDTOReq productDTO) throws IdNotFoundException, NameExistsException {
         var productDB = productRepository.findById(productDTO.getId())
                 .orElseThrow(() -> new IdNotFoundException("El id " + productDTO + " no existe. Ingrese un nuevo id"));
-        if (!customerRepository.existsById(productDTO.getSeller().getEmail())){
+         if (customerRepository.findByEmail(productDTO.getSeller().getEmail()).isEmpty()){
             throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
         }
         if (!categoryRepository.existsById(productDTO.getCategory().getId())){
