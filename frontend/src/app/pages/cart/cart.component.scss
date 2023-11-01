@@ -36,6 +36,15 @@ main{
               color: #494949;
             }
           }
+          .number-modifier{
+            input[type="number"]{
+              outline: none;
+              width: 20%;
+              &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
+                display: none;
+              }
+            }
+          }
 
         }
         .card-price{
