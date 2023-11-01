@@ -4,6 +4,7 @@ import com.marcketplace.MarcketPlace.dto.request.ProductDTOReq;
 import com.marcketplace.MarcketPlace.dto.response.ProductDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
 import com.marcketplace.MarcketPlace.exception.NameExistsException;
+import com.marcketplace.MarcketPlace.model.Account;
 import com.marcketplace.MarcketPlace.model.Category;
 import com.marcketplace.MarcketPlace.model.Customers;
 import com.marcketplace.MarcketPlace.model.Product;
@@ -45,19 +46,53 @@ public class ProductService implements IProductService{
      * Guarda un producto en base de datos
      * @param productDTO dto de producto
      */
+    
+    // @Override
+    //  public void saveProduct(ProductDTOReq productDTO) throws IdNotFoundException {
+
+    //     // Verifica si el vendedor existe antes de crear el producto
+    //     String sellerEmail = productDTO.getSeller().getEmail();
+    //     Customers seller = customerRepository.findByEmail(sellerEmail)
+    //             .orElseThrow(() -> new IdNotFoundException("El vendedor con el email " + sellerEmail + " no se encuentra registrado"));
+
+    //     // Convierte la primer letra de cada palabra en mayúscula
+    //     productDTO.setName(wordsConverter.capitalizeWords(productDTO.getName()));
+
+    //     // Crea el producto y asigna el vendedor
+    //     Product product = modelMapper.map(productDTO, Product.class);
+    //     product.setSeller(seller);
+
+    //     productRepository.save(product);
+    // }
+
+
+    
+
     @Override
     public void saveProduct(ProductDTOReq productDTO) throws IdNotFoundException {
-        if (customerRepository.findByEmail(productDTO.getSeller().getEmail()).isEmpty()){
-            throw new IdNotFoundException("El vendedor ingresado no se encuentra registrado");
+        if (customerRepository.findByEmail(productDTO.getSeller().getEmail()).isPresent()) {
+            Customers seller = customerRepository.findByEmail(productDTO.getSeller().getEmail()).get();
+    
+            if (!categoryRepository.existsById(productDTO.getCategory().getId())) {
+                throw new IdNotFoundException("La categoría ingresada no se encuentra registrada");
+            }
+    
+            // Convierte la primera letra de cada palabra en mayúscula
+            productDTO.setName(wordsConverter.capitalizeWords(productDTO.getName()));
+    
+            // Asocia el vendedor al producto
+            Product product = modelMapper.map(productDTO, Product.class);
+            product.setSeller(seller);
+    
+            // Guarda el producto en la base de datos
+            productRepository.save(product);
+        } else {
+            throw new IdNotFoundException("El vendedor no se encuentra registrado");
         }
-        if (!categoryRepository.existsById(productDTO.getCategory().getId())){
-            throw new IdNotFoundException("La categoria ingresada no se encuentra registrada");
-        }
-        //convierte la primer letra de cada palabra en mayúscula
-        productDTO.setName(wordsConverter.capitalizeWords(productDTO.getName()));
-
-        productRepository.save(modelMapper.map(productDTO, Product.class));
     }
+    
+
+
 
     /**
      * Busca y devuelve un producto por id

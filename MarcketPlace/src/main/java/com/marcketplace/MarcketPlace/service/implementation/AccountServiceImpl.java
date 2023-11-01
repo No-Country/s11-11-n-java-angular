@@ -1,5 +1,6 @@
 package com.marcketplace.MarcketPlace.service.implementation;
 
+
 import com.marcketplace.MarcketPlace.dto.request.CustomerRegistration;
 import com.marcketplace.MarcketPlace.model.Account;
 import com.marcketplace.MarcketPlace.model.Customers;
@@ -8,12 +9,12 @@ import com.marcketplace.MarcketPlace.repository.CustomerRepository;
 import com.marcketplace.MarcketPlace.security.jwt.JwtProvider;
 import com.marcketplace.MarcketPlace.service.AccountService;
 import com.marcketplace.MarcketPlace.util.enums.Role;
-//import jakarta.mail.MessagingException;
+import jakarta.mail.MessagingException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,9 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountRepository accountRepository;
 
+
     @Override
-    public CustomerRegistration createCustomer(Customers customers) {
+    public CustomerRegistration createCustomer(Customers customers){
         CustomerRegistration customerRegistration = new CustomerRegistration();
         int anoActual = LocalDate.now().getYear();
         String numeracion = obtenerNumeracionAutomatica();
@@ -50,6 +52,7 @@ public class AccountServiceImpl implements AccountService {
         String verificationCode = RandomString.make(64);
         customerRegistration.setVerificationCode(verificationCode);
 
+
         Customers saveCustomer = new Customers(email, password);
         saveCustomer.setEmail(email);
         saveCustomer.setPassword(password);
@@ -62,10 +65,13 @@ public class AccountServiceImpl implements AccountService {
         String jwt = jwtProvider.generateToken(saveCustomer);
         customerRegistration.setToken(jwt);
 
+
         customerRepository.save(saveCustomer);
 
         return customerRegistration;
     }
+
+
 
     @Override
     public Optional<Account> findByEmail(String email) {
@@ -112,8 +118,14 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+
+
+
+
+
+
     @Override
-    public Account findByUsernameReturnToken(String username) {
+    public Account findByUsernameReturnToken(String username){
         Account user = accountRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("El usuario no existe" + username));
         String jwt = jwtProvider.generateToken(user);
