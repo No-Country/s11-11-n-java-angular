@@ -1,5 +1,7 @@
 package com.marcketplace.MarcketPlace.dto.request;
 
+import com.marcketplace.MarcketPlace.model.Customers;
+
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -19,8 +21,8 @@ public class ProductDTOReq {
     private Double price;
     @NotNull(message = "No puede estar vacio")
     private String images;
-    @NotNull(message = "No puede estar vacio")
-    private CustomerRegistration seller;
+    @NotNull(message = "El Seller no puede estar vacio")
+    private SellerDTOReq seller;
     @NotNull(message = "No puede estar vacio")
     private CategoryDTOReq category;
     @NotNull(message = "No puede estar vacio")

@@ -103,4 +103,20 @@ public class CategorytService implements ICategoryService {
         categoryDTO.setName(wordsConverter.capitalizeWords(categoryDTO.getName()));
         categoryRepository.save(modelMapper.map(categoryDTO, Category.class));
     }
+
+    /**
+     * Busca y devuelve una categoria por el nombre
+     * 
+     * @param categoryName numero de id de producto
+     * @return dto de producto
+     * @throws IdNotFoundException mensaje de excepcion de id de producto no
+     *                             encontrado
+     */
+    @Override
+    public Category getCategoryByName(String categoryName) throws NameExistsException {
+        Category category = categoryRepository.findByName(categoryName)
+                .orElseThrow(() -> new NameExistsException(
+                        "El nomrbre " + categoryName + " no exite. Ingrese un nuevo nombre de categoria"));
+        return category;
+    }
 }

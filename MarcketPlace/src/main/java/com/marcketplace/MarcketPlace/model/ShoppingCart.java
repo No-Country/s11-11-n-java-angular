@@ -23,9 +23,9 @@ public class ShoppingCart implements Serializable {
     @Column(name = "quantity", nullable = false)
     private int quantity;
 
-   @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_account", referencedColumnName = "account_uuid")
+    private Account account;
 /*
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")
@@ -34,5 +34,6 @@ public class ShoppingCart implements Serializable {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "purchase_order_id", referencedColumnName = "purchase_order_id")
     private PurchaseOrder order;
-    
+
 }
+

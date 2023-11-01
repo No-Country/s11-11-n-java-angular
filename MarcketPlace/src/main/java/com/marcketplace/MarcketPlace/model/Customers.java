@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @DiscriminatorValue("customer")
@@ -32,11 +34,15 @@ public class Customers extends Account implements Serializable {
     @Column(name = "payment_preferences")
     private String payment_preferences;
 
-    public Customers(String email, String password){
-        super(email,password);
+    @ManyToMany
+    @JoinTable(name = "customer_wishlist", joinColumns = @JoinColumn(name = "customer_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private Set<Product> wishlist = new HashSet<>();
+
+    public Customers(String email, String password) {
+        super(email, password);
     }
 
-    public Customers(String email){
+    public Customers(String email) {
         super(email);
     }
 }

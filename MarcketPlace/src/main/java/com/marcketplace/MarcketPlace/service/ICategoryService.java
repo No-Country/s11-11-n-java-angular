@@ -7,6 +7,7 @@ import com.marcketplace.MarcketPlace.dto.request.CategoryDTOReq;
 import com.marcketplace.MarcketPlace.dto.response.CategoryDTORes;
 import com.marcketplace.MarcketPlace.exception.IdNotFoundException;
 import com.marcketplace.MarcketPlace.exception.NameExistsException;
+import com.marcketplace.MarcketPlace.model.Category;
 
 public interface ICategoryService {
     void saveCategory(CategoryDTOReq categoryDTO) throws NameExistsException, IdNotFoundException;
@@ -17,5 +18,6 @@ public interface ICategoryService {
 
     void updateCategory(CategoryDTOReq categoryDTO) throws IdNotFoundException, NameExistsException;
 
+    Category getCategoryByName(String categoryName) throws NameExistsException;
     // void deleteCategory(Long categoryID);
 }
