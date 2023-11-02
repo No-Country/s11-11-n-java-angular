@@ -52,7 +52,10 @@
         <button type="submit" color="primary" mat-raised-button>Save</button>
       </div>
       <div class="div-50">
-        <a color="accent" routerLink="login">Back To Login</a>
+        <a [routerLink]="['/login']" style="color: #fff">Back To Login</a>
+      </div>
+      <div class="div-50">
+        <a [routerLink]="['/quantum']" style="color: #fff">Back To Home</a>
       </div>
     </mat-card-actions>
   </mat-card>

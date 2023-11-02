@@ -8,35 +8,32 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'home', // http://localhost:4200/quantum/home
+        path: 'home',
         loadChildren: () =>
           import('../pages/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'search', // http://localhost:4200/quantum/search
+        path: 'search',
         loadChildren: () =>
           import('../pages/search-results/search-results.module').then(
             (m) => m.SearchResultsModule
           ),
       },
       {
-        path: 'details', // http://localhost:4200/quantum/details
+        path: 'details',
         loadChildren: () =>
           import('../pages/product-details/product-details.module').then(
             (m) => m.ProductDetailsModule
           ),
       },
       {
-        path: '', // http://localhost:4200/quantum
-        redirectTo: 'search',
+        path: '',
+        redirectTo: 'home',
         pathMatch: 'full',
       },
     ],
   },
-  {
-    path: '**', // http://localhost:4200/quantum/any...
-    redirectTo: '',
-  },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

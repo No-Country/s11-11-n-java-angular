@@ -1,4 +1,4 @@
-<h1>Iniciar sesión</h1>
+<h1 style="text-align: center">Iniciar sesión</h1>
 
 <div class="form">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -70,7 +70,13 @@
       <button type="submit" (click)="login()" class="btn btn-primary center">
         Iniciar sesión
       </button>
-      <button type="submit" class="btn btn-primary center">Registrarse</button>
+      <button
+        type="button"
+        class="btn btn-primary center"
+        [routerLink]="['/register']"
+      >
+        Registrarse
+      </button>
     </div>
   </form>
 </div>

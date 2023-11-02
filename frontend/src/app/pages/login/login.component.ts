@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from '../../../../services/login.service';
-
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTabLabel } from '@angular/material/tabs';
+import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
-import { Login } from '../../../../shared/models/login.model';
-import { TimeoutError } from 'rxjs';
+import { Login } from '../../shared/models/login.model';
+import { NotifyService } from 'src/app/services/notify.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './layout-login.component.html',
-  styleUrls: ['./layout-login.component.scss'],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class LayoutLoginComponent {
+export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
@@ -24,9 +21,7 @@ export class LayoutLoginComponent {
 
   constructor(
     private loginService: LoginService,
-
-    private snackBar: MatSnackBar,
-    private matLabel: MatTabLabel,
+    private notifySvc: NotifyService,
     private router: Router
   ) {}
 
@@ -55,12 +50,12 @@ export class LayoutLoginComponent {
   }
 
   onSubmit() {
-    if (!this.loginForm.valid) {
+    if (this.loginForm.invalid) {
       // Realizar la lógica de inicio de sesión
-      this.snackBar.open('Formulario incompleto', 'Error con tus datos');
-      setTimeout(() => {
-        this.snackBar.ngOnDestroy();
-      }, 3000);
+      this.notifySvc.showError(
+        'Error al iniciar sesión',
+        'Error con tus datos'
+      );
 
       return;
     }
@@ -70,14 +65,20 @@ export class LayoutLoginComponent {
     };
     this.loginService.Login(user).subscribe({
       next: () => {
-        this.snackBar.open('Login correcto', 'Bienvenido');
+        this.notifySvc.showSuccess(
+          'Inicio de sesión exitoso',
+          'Bienvenido a QuantumGamer'
+        );
         this.router.navigate(['']);
         setTimeout(() => {
           location.href = '/quantum/home';
         }, 3000);
       },
       error: (err) => {
-        this.snackBar.open('Error al iniciar sesión', 'Error con tus datos');
+        this.notifySvc.showError(
+          'Error al iniciar sesión',
+          'Error con tus datos'
+        );
       },
     });
   }
