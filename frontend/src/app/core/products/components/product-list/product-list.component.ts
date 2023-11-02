@@ -6,7 +6,7 @@ import {
   SimpleChanges,
   OnDestroy,
 } from '@angular/core';
-import { ProductCard } from '../../models/product.interface';
+import { ProductCard } from '../../models/product-card.interface';
 import { ProductService } from '../../services/product.service';
 import { Subscription } from 'rxjs';
 

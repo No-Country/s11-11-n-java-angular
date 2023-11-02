@@ -1,0 +1,190 @@
+.container {
+  gap: 3rem;
+  margin: 6rem auto;
+  padding: 0 6rem;
+}
+
+.section-images {
+  height: fit-content;
+  border-radius: 6px;
+  padding: 0.5rem;
+  border: 2px solid #c3bfc6;
+}
+
+.container-img {
+  width: 300px;
+  height: 426px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.section-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.form-create {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+legend {
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+label {
+  z-index: 1;
+  display: block;
+  margin-bottom: -8px;
+  margin-left: 8px;
+  background-color: #fff;
+  width: fit-content;
+  font-size: 14px;
+  padding: 0 5px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-control {
+  width: 100%;
+  z-index: 0;
+  height: 45px;
+  border-radius: 6px;
+  border: 2px solid #49454f;
+  padding-left: 1rem;
+
+  outline: none;
+
+  &:focus {
+    border: 2px solid #6e5d88;
+  }
+}
+
+.form-control-area {
+  width: 100%;
+  border-radius: 6px;
+  border: 2px solid #49454f;
+  min-height: 125px;
+  resize: vertical;
+  padding: 1rem;
+
+  outline: none;
+
+  &:focus {
+    border: 2px solid #6e5d88;
+  }
+}
+
+.btn-row {
+  gap: 1rem;
+}
+
+.btn-primary {
+  width: fit-content;
+  height: 45px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #49454f;
+  }
+}
+
+.btn-secondary {
+  width: fit-content;
+  height: 45px;
+  border-radius: 6px;
+  border: 2px solid #49454f;
+  color: #49454f;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #49454f;
+    color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0 1.5rem;
+    gap: 1rem;
+  }
+
+  legend {
+    margin: 0 auto;
+
+    h2 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+
+  .section-images {
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 0.2rem;
+  }
+
+  .container-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .section-form {
+    gap: 1rem;
+  }
+
+  .form-create {
+    gap: 1rem;
+  }
+
+  .form-group {
+    gap: 0.3rem;
+  }
+
+  label {
+    margin-bottom: 0;
+    margin-left: 0;
+    padding: 0;
+    font-size: 12px;
+  }
+
+  .row {
+    gap: 1rem;
+  }
+
+  .form-control {
+    height: 35px;
+  }
+
+  .btn-row {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}

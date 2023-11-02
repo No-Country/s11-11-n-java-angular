@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
+import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
-import { Login } from '../../shared/models/login.model';
+import { Login } from '../../../shared/models/login.model';
 import { NotifyService } from 'src/app/services/notify.service';
 
 @Component({

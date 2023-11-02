@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ProductCard } from '../../models/product.interface';
+import { ProductCard } from '../../models/product-card.interface';
 
 @Component({
   selector: 'product-card',
@@ -11,7 +11,7 @@ export class ProductCardComponent {
   iconCart = 'add';
   iconWish = 'add';
 
-  addToCart(id: number) {
+  addToCart(id: number | undefined) {
     if (this.iconCart === 'remove') {
       this.iconCart = 'add';
     } else {
@@ -21,7 +21,7 @@ export class ProductCardComponent {
     // this.iconCart = this.iconCart === 'remove' ? 'add' : 'remove';
   }
 
-  addToWishlist(id: number) {
+  addToWishlist(id: number | undefined) {
     if (this.iconWish === 'remove') {
       this.iconWish = 'add';
     } else {

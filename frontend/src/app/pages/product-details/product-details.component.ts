@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProductService } from 'src/app/core/products/services/product.service';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs';
-import { ProductCard } from 'src/app/core/products/models/product.interface';
+import { ProductCard } from 'src/app/core/products/models/product-card.interface';
 
 @Component({
   selector: 'app-product-details',
