@@ -34,6 +34,14 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'cart',
+        loadChildren: () =>
+          import('../pages/cart-page/cart-page.module').then(
+            (m) => m.CartPageModule
+
+          ),
+      },
+      {
         path: '',
         redirectTo: 'add-product',
         pathMatch: 'full',

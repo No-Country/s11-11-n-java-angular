@@ -1,0 +1,73 @@
+<div class="container container-title">
+  <h1 class="title">Carrito de compras</h1>
+</div>
+<main class="container container-cart">
+  <section class="cards">
+    <div class="card" *ngFor="let item of cartList; let i = index">
+      <div class="container-img">
+        <img [src]="item.product.img" [alt]="item.product.name" />
+      </div>
+      <div class="card-content">
+        <div class="card-title">
+          <div class="card-title-item-name">
+            <h3 class="title">{{ item.product.name }}</h3>
+            <span>{{ item.product.description }}</span>
+          </div>
+          <div class="number-modifier">
+            <button
+              class="btn-number-modifier"
+              (click)="decrement(item.quantity, item.product.id)"
+            >
+              -
+            </button>
+            <input type="number" min="1" [value]="item.quantity" />
+            <button
+              class="btn-number-modifier"
+              (click)="increment(item.quantity, item.product.id)"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <div class="card-price">
+          <div class="card-icons">
+            <button
+              class="btn-icon"
+              type="button"
+              (click)="removeAt(item.product.id)"
+            >
+              <img src="assets/images/icon-trash.svg" alt="" />
+            </button>
+            <button class="btn-icon" type="button">
+              <img src="assets/images/hEART BIG.png" alt="" />
+            </button>
+          </div>
+          <div class="item-price">
+            <h3>{{ item.product.price | currency }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="cartLength === 0">
+      <h3>No hay productos en el carrito</h3>
+    </ng-container>
+  </section>
+
+  <section class="cart-total">
+    <article class="title-cart-total">
+      <h3>Resumen de compra</h3>
+    </article>
+    <!-- <article class="section-cart-total subtotal">
+      <p>Subtotal</p>
+      <p>{{ 100 | currency }}</p>
+    </article> -->
+    <article class="section-cart-total total">
+      <p>Total</p>
+      <p>{{ cartLength === 0 ? (0 | currency) : (totalPrice | currency) }}</p>
+    </article>
+    <button class="btn btn-primary" (click)="onPayment()">
+      Finalizar compra
+    </button>
+  </section>
+</main>

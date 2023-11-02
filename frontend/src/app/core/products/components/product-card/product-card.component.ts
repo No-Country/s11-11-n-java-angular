@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
+
 import { ProductCard } from '../../models/product-card.interface';
+import { CartService } from 'src/app/pages/cart-page/services/cart.service';
+import { NotifyService } from 'src/app/services/notify.service';
+
 
 @Component({
   selector: 'product-card',
@@ -11,14 +15,20 @@ export class ProductCardComponent {
   iconCart = 'add';
   iconWish = 'add';
 
+
+  constructor(
+    private _cartSvc: CartService,
+    private _notifySvc: NotifyService
+  ) {}
+
   addToCart(id: number | undefined) {
     if (this.iconCart === 'remove') {
       this.iconCart = 'add';
+      this._cartSvc.removeProduct(id);
     } else {
       this.iconCart = 'remove';
-      console.log('Add to cart:', id);
+      this._cartSvc.addProductInCart({ id, quantity: 1 });
     }
-    // this.iconCart = this.iconCart === 'remove' ? 'add' : 'remove';
   }
 
   addToWishlist(id: number | undefined) {
