@@ -12,10 +12,27 @@
 </section>
 
 <section class="container container-filters">
-  <p style="margin: 0 auto 2rem">TODO: Add filters</p>
+  <div class="orderBy">
+    <label for="orderBy">Ordenar por:</label>
+    <select name="orderBy" id="orderBy">
+      <option value="price">Precio</option>
+      <option value="name">Nombre</option>
+    </select>
+  </div>
+
+  <div class="filterBy">
+    <div class="minPrice">
+      <label for="minPrice">Precio mínimo:</label>
+      <input type="number" name="minPrice" id="minPrice" />
+    </div>
+    <div class="maxPrice">
+      <label for="maxPrice">Precio máximo:</label>
+      <input type="number" name="maxPrice" id="maxPrice" />
+    </div>
+  </div>
 </section>
 
-<section class="container">
+<section class="container container-results">
   <product-list />
 </section>
 

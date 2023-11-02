@@ -4,7 +4,7 @@
   /* Sombra APP */
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: var(--f-2);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
@@ -18,15 +18,22 @@
   /* Sombra APP */
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: var(--f-2);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
 
   .product-length {
     color: #cf3686;
     font-family: var(--f-2);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
   }
+}
+
+.container-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
