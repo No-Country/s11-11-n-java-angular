@@ -33,6 +33,5 @@ export class HomeComponent {
     },
   ];
 
-  premiereList = [];
-  // TODO: Get data PRODUCTS from API
+  premiereList = []; // TODO: Get data PRODUCTS from API
 }
