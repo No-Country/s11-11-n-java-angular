@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './pages/cart/cart.component';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 import { LoginModule } from './pages/auth/pages/login/login.module';
 import { HomeModule } from './pages/home/home.module';
@@ -24,7 +27,7 @@ import { ProductDetailsModule } from './pages/product-details/product-details.mo
 import { RegisterComponent } from './core/auth/register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent, RegisterComponent, CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,6 +39,8 @@ import { RegisterComponent } from './core/auth/register/register.component';
     MaterialModule,
     SharedModule,
     LayoutModule,
+    MatCardModule,
+    FormsModule,
 
     ReactiveFormsModule,
     HttpClientModule,
