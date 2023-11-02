@@ -20,6 +20,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'details', // http://localhost:4200/quantum/details
+        loadChildren: () =>
+          import('../pages/product-details/product-details.module').then(
+            (m) => m.ProductDetailsModule
+          ),
+      },
+      {
         path: '', // http://localhost:4200/quantum
         redirectTo: 'search',
         pathMatch: 'full',

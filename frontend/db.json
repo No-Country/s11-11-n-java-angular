@@ -1,0 +1,38 @@
+{
+  "user": [
+    {
+      "Fullname": "leonel",
+      "Password": "123456",
+      "PersonalInfo": "pruuuuuuum",
+      "Email": "user@mail.com",
+      "ShippingAddress": "salta",
+      "Country": "argentina",
+      "City": "cordoba",
+      "Zip": "5000",
+      "PaymentPreferences": "mercadopago",
+      "id": 1
+    },
+    {
+      "Fullname": "leonel",
+      "Password": "123456",
+      "PersonalInfo": "pruuuuuuum",
+      "Email": "user@mail.com",
+      "ShippingAddress": "salta",
+      "Country": "argentina",
+      "City": "cordoba",
+      "Zip": "5000",
+      "PaymentPreferences": "mercadopago",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
