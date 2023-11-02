@@ -29,5 +29,5 @@ export class HomeComponent {
     },
   ];
 
-  premiereList = []; // TODO: Get data PRODUCTS from API
+  premiereList = ['Estrenos', 'Preventa', 'Accesorios']; // TODO: Get data PRODUCTS from API
 }

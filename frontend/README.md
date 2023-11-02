@@ -52,6 +52,30 @@ ng serve
 
 2. Abre tu navegador y visita [http://localhost:4200/](http://localhost:4200/) para ver la aplicación en funcionamiento.
 
+## Dockerfile component
+
+1. Abre la aplicación de docker en tu ordenador
+
+2. Abre la terminal en la carpeta del proyecto
+
+3. Navega al directorio del proyect:
+
+```bash
+cd frontend
+```
+
+4. Construye la imagen de docker:
+
+```bash
+docker build --no-cache --progress=plain -t quantumgamer .
+```
+
+5. Lanza la imagen de docker a un contenedor para ejectuarlo:
+
+```bash
+docker run -d -i -p 4000:4000 --name quantumgamer quantumgamer
+```
+
 ## Contribución
 
 Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:

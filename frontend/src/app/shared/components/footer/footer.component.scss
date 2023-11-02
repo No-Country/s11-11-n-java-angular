@@ -18,31 +18,15 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem 3rem 1.5rem;
+    width: 100%;
+  }
 }
 
-.container-images {
-  display: flex;
+.container-img {
   margin: 0 auto;
-  position: relative;
-  z-index: 0;
-
-  .container-img {
-    z-index: 1;
-  }
-
-  .before {
-    position: absolute;
-    top: -0.6rem;
-    left: -3rem;
-    width: 5.5rem;
-    z-index: -1;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
 }
 
 .container-social {
