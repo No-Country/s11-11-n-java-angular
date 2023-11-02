@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductDetailsComponent } from './product-details.component';
-import { ProductDetailsModule } from '../product-details/product-details.module';
 
 const routes: Routes = [
-  { path: 'product-details', component: ProductDetailsComponent },
-  { path: '**', redirectTo: '' },
-  {
-    path: 'product-details',
+  { path: '', component: ProductDetailsComponent },
+  /* {
+    path: 'home',
     loadChildren: () =>
-      import('../product-details/product-details.module').then(
-        (m) => m.ProductDetailsModule
-      ),
-  },
+      import('../home/home.module').then((m) => m.HomeModule),
+  }, */
+
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

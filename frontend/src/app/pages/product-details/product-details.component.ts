@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProductListComponent } from 'src/app/core/products/components/product-list/product-list.component';
+import { ProductService } from 'src/app/core/products/services/product.service';
+import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { ProductCard } from 'src/app/core/products/models/product.interface';
 
 @Component({
   selector: 'app-product-details',
@@ -8,11 +10,13 @@ import { ProductListComponent } from 'src/app/core/products/components/product-l
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent {
-  constructor(
-    private route: ActivatedRoute,
-    private producto: ProductListComponent
-  ) {}
+  products!: Observable<ProductCard[]>;
 
-  productos: any[] = [];
+  constructor(private productSvc: ProductService) {}
+
+  ngOnInit(): void {
+    this.products = this.productSvc.getProducts();
+
+    console.log({ getProducts: this.products });
+  }
 }
-console.log('hola');

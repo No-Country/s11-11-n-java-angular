@@ -4,6 +4,7 @@ import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
 import { ProductsModule } from '../../core/products/products.module';
 
 import { ProductCardComponent } from 'src/app/core/products/components/product-card/product-card.component';
+import { RegisterComponent } from '../../core/auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -21,10 +22,27 @@ const routes: Routes = [
           import('./pages/login/login.module').then((m) => m.LoginModule),
       },
       {
+        path: '',
+        redirectTo: 'products',
+        pathMatch: 'full',
+      },
+      {
         path: 'products',
         loadChildren: () =>
           import('../../core/products/products.module').then(
             (m) => m.ProductsModule
+          ),
+      },
+      {
+        path: '',
+        redirectTo: 'register',
+        pathMatch: 'full',
+      },
+      {
+        path: 'register',
+        loadChildren: () =>
+          import('../../core/auth/register/register.component').then(
+            (m) => m.RegisterComponent
           ),
       },
     ],

@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './core/auth/register/register.component';
 
-import { LayoutLoginComponent } from './pages/auth/pages/login/layout-login.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { ProductDetailsModule } from '../app/pages/product-details/product-details.module';
 
 const routes: Routes = [
-  { path: 'login', component: LayoutLoginComponent },
+  { path: 'login', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () =>
@@ -20,19 +19,19 @@ const routes: Routes = [
     loadChildren: () =>
       import('./layout/layout.module').then((m) => m.LayoutModule),
   },
-  { path: '**', redirectTo: 'search' },
+
+  { path: 'register', component: RegisterComponent },
   {
     path: '',
     redirectTo: 'quantum',
     pathMatch: 'full',
   },
-  { path: 'product-details', component: ProductDetailsComponent },
-
+  { path: '', redirectTo: 'quantum', pathMatch: 'full' },
   {
-    path: 'product-details',
+    path: 'register',
     loadChildren: () =>
-      import('./pages/product-details/product-details.module').then(
-        (m) => m.ProductDetailsModule
+      import('./core/auth/register/register.component').then(
+        (m) => m.RegisterComponent
       ),
   },
   { path: '**', redirectTo: 'home' },

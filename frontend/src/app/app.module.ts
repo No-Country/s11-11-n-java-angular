@@ -21,8 +21,10 @@ import { SharedModule } from './shared/shared.module';
 import { SearchResultsModule } from './pages/search-results/search-results.module';
 import { ProductDetailsModule } from './pages/product-details/product-details.module';
 
+import { RegisterComponent } from './core/auth/register/register.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
