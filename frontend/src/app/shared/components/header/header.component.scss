@@ -98,6 +98,22 @@
   }
 }
 
+#show-cart {
+  &:hover {
+    + shared-cart-modal {
+      display: block;
+    }
+  }
+}
+
+shared-cart-modal {
+  display: none;
+
+  &:hover {
+    display: block;
+  }
+}
+
 .btn-menu {
   &:hover {
     + .header-menu-modal {

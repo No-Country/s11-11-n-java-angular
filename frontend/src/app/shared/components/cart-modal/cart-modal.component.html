@@ -1,1 +1,44 @@
-<p>cart-modal works!</p>
+<aside class="container-cart">
+  <section class="container-cards">
+    <article class="card" *ngFor="let item of cartList">
+      <div class="container-img">
+        <img [src]="item.product.img" [alt]="item.product.name" />
+      </div>
+      <div class="card-content">
+        <div class="card-info">
+          <div class="card-info__item">
+            <h3 class="card-title">{{ item.product.name }}</h3>
+            <p class="card-subtitle">{{ item.product.description }}</p>
+          </div>
+          <div class="card-info__item">
+            <p>Cantidad: {{ item.quantity }}</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <div class="card-icons">
+            <button class="btn-icon" (click)="removeAt(item.product.id)">
+              <img src="assets/images/remove-cart.svg" alt="icon trash" />
+            </button>
+            <button class="btn-icon">
+              <img src="assets/images/add-wish.svg" alt="icon wishlist" />
+            </button>
+          </div>
+          <div class="card-price">
+            <p class="card-price__text">
+              {{ item.product.price * item.quantity | currency }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <ng-container *ngIf="cartLength === 0">
+      <h3>No hay productos en el carrito</h3>
+    </ng-container>
+  </section>
+  <section class="container-total">
+    <button class="btn btn-buy">Comprar</button>
+    <button class="btn btn-secondary" [routerLink]="['/quantum/cart']">
+      Ir al carrito
+    </button>
+  </section>
+</aside>

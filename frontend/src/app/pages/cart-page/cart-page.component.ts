@@ -11,8 +11,6 @@ import { ProductCard } from 'src/app/core/products/models/product.interface';
   styleUrls: ['./cart-page.component.scss'],
 })
 export class CartPageComponent implements OnInit {
-  value = 1;
-
   cartList!: LocalCart[];
   allProducts!: ProductCard[];
   totalPrice!: number;
