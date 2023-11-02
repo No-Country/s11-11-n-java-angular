@@ -40,6 +40,12 @@
   justify-content: space-between;
 }
 
+.container-img {
+  width: 100px;
+  height: 100px;
+  background: #494949;
+}
+
 .card-info {
   display: flex;
   flex-direction: column;
@@ -64,6 +70,9 @@
 
   .card-price__text {
     width: fit-content;
+    color: #ff1700;
+    font-family: Inter;
+    font-weight: 700;
   }
 }
 

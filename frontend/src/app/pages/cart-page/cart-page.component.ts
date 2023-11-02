@@ -3,7 +3,7 @@ import { ProductService } from 'src/app/core/products/services/product.service';
 import { NotifyService } from 'src/app/services/notify.service';
 import { LocalCart } from './models/cart.model';
 import { CartService } from './services/cart.service';
-import { ProductCard } from 'src/app/core/products/models/product.interface';
+import { ProductCard } from 'src/app/core/products/models/product-card.interface';
 
 @Component({
   selector: 'cart-page',
@@ -45,7 +45,7 @@ export class CartPageComponent implements OnInit {
     });
   }
 
-  increment(quantity: number, id: number) {
+  increment(quantity: number, id: number | undefined) {
     if (quantity < 10) {
       this._cartSvc.increaseProductQuantity(id);
       return;
@@ -53,7 +53,7 @@ export class CartPageComponent implements OnInit {
     this._notifySvc.showError('No puedes agregar más de 10', 'Límite');
   }
 
-  decrement(quantity: number, id: number) {
+  decrement(quantity: number, id: number | undefined) {
     if (quantity > 1) {
       this._cartSvc.decreaseProductQuantity(id);
       return;
@@ -67,7 +67,7 @@ export class CartPageComponent implements OnInit {
     }
   }
 
-  removeAt(id: number) {
+  removeAt(id: number | undefined) {
     this._cartSvc.removeProduct(id);
   }
 }

@@ -4,7 +4,6 @@ import { ProductCard } from '../../models/product-card.interface';
 import { CartService } from 'src/app/pages/cart-page/services/cart.service';
 import { NotifyService } from 'src/app/services/notify.service';
 
-
 @Component({
   selector: 'product-card',
   templateUrl: './product-card.component.html',
@@ -15,7 +14,6 @@ export class ProductCardComponent {
   iconCart = 'add';
   iconWish = 'add';
 
-
   constructor(
     private _cartSvc: CartService,
     private _notifySvc: NotifyService
@@ -25,9 +23,11 @@ export class ProductCardComponent {
     if (this.iconCart === 'remove') {
       this.iconCart = 'add';
       this._cartSvc.removeProduct(id);
+      this._notifySvc.showSuccess('Se ha eliminado del carrito', 'Ok');
     } else {
       this.iconCart = 'remove';
       this._cartSvc.addProductInCart({ id, quantity: 1 });
+      this._notifySvc.showSuccess('Añadido al carrito', 'Ok');
     }
   }
 

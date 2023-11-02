@@ -38,7 +38,6 @@ const routes: Routes = [
         loadChildren: () =>
           import('../pages/cart-page/cart-page.module').then(
             (m) => m.CartPageModule
-
           ),
       },
       {

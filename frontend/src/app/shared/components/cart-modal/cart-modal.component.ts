@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCard } from 'src/app/core/products/models/product.interface';
+import { ProductCard } from 'src/app/core/products/models/product-card.interface';
 import { ProductService } from 'src/app/core/products/services/product.service';
 import { LocalCart } from 'src/app/pages/cart-page/models/cart.model';
 import { CartService } from 'src/app/pages/cart-page/services/cart.service';
@@ -67,7 +67,7 @@ export class CartModalComponent implements OnInit {
     }
   }
 
-  removeAt(id: number) {
+  removeAt(id: number | undefined) {
     this._cartSvc.removeProduct(id);
   }
 }

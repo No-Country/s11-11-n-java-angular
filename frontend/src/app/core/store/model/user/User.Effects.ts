@@ -1,10 +1,10 @@
 /* eslint-disable @ngrx/prefer-effect-callback-in-block-statement */
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { UserService } from 'src/app/core/auth/services/user.service';
 import { beginRegister } from './User.Action';
 import { exhaustMap, map, catchError, of } from 'rxjs';
 import { showAlert } from '../../common/app.action';
+import { UserService } from 'src/app/core/auth/services/user.service';
 
 @Injectable()
 export class UserEffect {

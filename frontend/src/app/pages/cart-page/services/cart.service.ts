@@ -20,14 +20,14 @@ export class CartService {
     this.cartListSubject.next([...this.cartList]);
     localStorage.setItem('cart', JSON.stringify(this.cartList));
   }
-  removeProduct(id: number) {
+  removeProduct(id: number | undefined) {
     const index = this.cartList.findIndex((item) => item.id === id);
     this.cartList.splice(index, 1);
     this.cartListSubject.next([...this.cartList]);
     localStorage.setItem('cart', JSON.stringify(this.cartList));
   }
 
-  increaseProductQuantity(id: number) {
+  increaseProductQuantity(id: number | undefined) {
     const index = this.cartList.findIndex((p) => p.id === id);
     if (index !== -1) {
       this.cartList[index].quantity += 1;
@@ -36,7 +36,7 @@ export class CartService {
     }
   }
 
-  decreaseProductQuantity(id: number) {
+  decreaseProductQuantity(id: number | undefined) {
     const index = this.cartList.findIndex((p) => p.id === id);
     if (index !== -1) {
       this.cartList[index].quantity -= 1;
