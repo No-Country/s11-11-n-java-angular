@@ -1,0 +1,256 @@
+.bg-header {
+  width: 100%;
+  background: var(--bg-gradient-1);
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+}
+
+.header-list {
+  position: relative;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100px;
+    position: sticky;
+    top: -0.1px;
+    padding: 0 1rem;
+  }
+}
+
+.container-img {
+  width: 70px;
+}
+
+.container-nav {
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  .container-nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.8rem;
+  }
+
+  .link-menu {
+    text-decoration: none;
+    text-shadow: var(--t-shadow-1);
+    font-family: var(--f-1);
+    font-weight: 600;
+    color: var(--c-1-a);
+    font-size: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.container-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+
+    .btn-menu {
+      padding: 0;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.container-menu__item {
+  /* TOD: ADD STYLES BY MENU CONTAINER */
+  position: relative;
+}
+
+.btn-menu {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    background: rgb(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    background: rgb(0, 0, 0, 0.3);
+  }
+}
+
+.btn-menu {
+  &:hover {
+    + .header-menu-modal {
+      display: block;
+    }
+  }
+}
+
+.menu-user {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// MODALS - MENU ------------------------------- DESKTOP
+
+.header-menu-modal {
+  // nav
+  position: absolute;
+  display: none;
+  top: 2.6rem;
+  right: 0;
+  background: var(--c-1-a);
+
+  &:hover {
+    display: block;
+  }
+}
+
+.menu-list-modal {
+  // ul
+  list-style: none;
+}
+
+.link-menu-modal {
+  // a
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  font-family: var(--f-2);
+  font-size: 1.2rem;
+  color: var(--c-1-e);
+  padding: 1.5rem;
+
+  &:hover {
+    background: var(--c-1-c);
+    color: var(--c-1-e);
+  }
+}
+
+.active-nav {
+  text-decoration: underline;
+}
+
+.active-nav-modal {
+  background: var(--c-1-c);
+  color: var(--c-1-e);
+}
+
+// SIDEBAR ------------------------------- MOBILE
+
+.sidebar {
+  display: none;
+  z-index: 5000;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.btn-sidebar {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.header-sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 99px;
+  left: -200px;
+  width: 200px;
+  /* width: clamp(200px, 100%, 250px); */
+  height: calc(100vh - 98px);
+  padding: 1.125rem 0 1rem 0.5rem;
+  background: var(--bg-gradient-4);
+  z-index: 5000;
+  transition: left 0.3s ease-in-out;
+
+  .sidebar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+
+      img {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    .link-sidebar {
+      // a
+      text-decoration: none;
+      color: var(--Blanco-APP-textos-e-iconos, #efeeee);
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      font-family: var(--f-1);
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+  }
+
+  .auth-links {
+    color: #fff;
+    text-align: center;
+    font-family: var(--f-2);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.showSidebarAnimation {
+  left: 0;
+}
+
+// SEARCH BOX
+.shared-search-box {
+  display: none;
+}
+
+.show-search-box {
+  display: block;
+}

@@ -1,0 +1,98 @@
+<section class="container">
+  <article class="article section-images">
+    <div class="container-img">
+      <img [src]="img" alt="cover game" />
+    </div>
+  </article>
+  <article class="article section-form">
+    <form
+      class="form-create"
+      [formGroup]="addProductForm"
+      (ngSubmit)="onCreateProdct()"
+    >
+      <div class="row">
+        <legend>
+          <h2>Crear Producto</h2>
+        </legend>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="stock">Stock</label>
+          <input
+            type="text"
+            class="form-control"
+            id="stock"
+            formControlName="stock"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="img">Imagen</label>
+          <input
+            type="url"
+            class="form-control"
+            id="img"
+            formControlName="img"
+            [(ngModel)]="img"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="price">Categoría</label>
+          <select
+            class="form-control"
+            id="pricategoryce"
+            formControlName="category"
+          >
+            <option value="" selected disabled>Seleccionar</option>
+            <option value="category1">Categoría 1</option>
+            <option value="category2">Categoría 2</option>
+            <option value="category3">Categoría 3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Precio</label>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            formControlName="price"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <textarea
+            class="form-control-area"
+            name="description"
+            id="description"
+            cols="30"
+            formControlName="description"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row btn-row">
+        <button class="btn btn-primary" type="submit">Crear Producto</button>
+        <button
+          class="btn btn-secondary"
+          type="button"
+          [routerLink]="['/quantum/home']"
+        >
+          Volver
+        </button>
+      </div>
+    </form>
+  </article>
+</section>
