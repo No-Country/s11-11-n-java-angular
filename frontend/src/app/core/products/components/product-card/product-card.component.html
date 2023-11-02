@@ -1,6 +1,9 @@
 <div class="product-card">
   <div class="container-img">
     <img [src]="product.img" [alt]="product.name" [title]="product.name" />
+    <button class="btn btn-primary" (click)="viewProduct()">
+      Ver producto
+    </button>
   </div>
   <div class="container-info">
     <h3 class="title">{{ product.name | uppercase }}</h3>
@@ -9,18 +12,18 @@
   <div class="container-footer">
     <p class="price">{{ product.price | currency }}</p>
     <div class="container-actions">
-      <button class="btn-to-add">
+      <button class="btn-to-add" (click)="addToCart(product.id)">
         <img
           class="icon-btn-to-add"
-          src="assets/images/add-cart.svg"
-          alt="add cart"
+          [src]="'assets/images/' + iconCart + '-cart.svg'"
+          [alt]="iconCart + 'cart'"
         />
       </button>
-      <button class="btn-to-add">
+      <button class="btn-to-add" (click)="addToWishlist(product.id)">
         <img
           class="icon-btn-to-add"
-          src="assets/images/add-wish.svg"
-          alt="add cart"
+          [src]="'assets/images/' + iconWish + '-wish.svg'"
+          [alt]="iconWish + 'wish'"
         />
       </button>
     </div>

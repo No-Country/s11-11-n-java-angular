@@ -12,4 +12,4 @@ FROM nginx:1.24.0-alpine
 COPY --from=build /usr/src/app/dist/quantumgamer /usr/share/nginx/html
 COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 4000
+EXPOSE 4200

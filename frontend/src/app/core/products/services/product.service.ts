@@ -10,68 +10,106 @@ import { ProductCard } from '../models/product.interface';
 export class ProductService {
   private baseUrl = environment.apiBaseUrl;
 
-  // INICIO: Products array test
+  // START: Products array test
   // -----------------------------------------------------------------
   private products = new BehaviorSubject<ProductCard[]>([
     {
-      img: 'https://via.placeholder.com/250',
+      id: 1,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 1',
       description: 'Desc 1',
       price: 100,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 2,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 2',
       description: 'Desc 2',
       price: 200,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 3,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 3',
       description: 'Desc 3',
       price: 300,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 4,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 4',
       description: 'Desc 4',
       price: 400,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 5,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 5',
       description: 'Desc 5',
       price: 770,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 6,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 6',
       description: 'Desc 6',
       price: 260,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 7,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 7',
       description: 'Desc 7',
       price: 330,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 8,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 8',
       description: 'Desc 8',
       price: 450,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 9,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 9',
       description: 'Desc 9',
       price: 120,
     },
     {
-      img: 'https://via.placeholder.com/250',
+      id: 10,
+      img: 'https://via.placeholder.com/150',
       name: 'Product 10',
       description: 'Desc 10',
       price: 150,
+    },
+    {
+      id: 11,
+      img: 'https://via.placeholder.com/150',
+      name: 'Product 11',
+      description: 'Desc 11',
+      price: 869,
+    },
+    {
+      id: 12,
+      img: 'https://via.placeholder.com/150',
+      name: 'Product 12',
+      description: 'Desc 12',
+      price: 353,
+    },
+    {
+      id: 13,
+      img: 'https://via.placeholder.com/150',
+      name: 'Product 12',
+      description: 'Desc 12',
+      price: 353,
+    },
+    {
+      id: 14,
+      img: 'https://via.placeholder.com/150',
+      name: 'Product 12',
+      description: 'Desc 12',
+      price: 353,
     },
   ]);
   getProducts() {
@@ -81,7 +119,7 @@ export class ProductService {
     this.products.next(products);
   }
   // -----------------------------------------------------------------
-  // FIN: Products array test
+  // FINAL: Products array test
 
   constructor(private http: HttpClient) {}
 
