@@ -27,15 +27,23 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'add-product',
+        loadChildren: () =>
+          import('../pages/create-product/create-product.module').then(
+            (m) => m.CreateProductModule
+          ),
+      },
+      {
         path: 'cart',
         loadChildren: () =>
           import('../pages/cart-page/cart-page.module').then(
             (m) => m.CartPageModule
+
           ),
       },
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'add-product',
         pathMatch: 'full',
       },
     ],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductCard } from 'src/app/core/products/models/product.interface';
+import { ProductCard } from 'src/app/core/products/models/product-card.interface';
 import { ProductCardComponent as ProductCardComponent1 } from 'src/app/core/products/components/product-card/product-card.component';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
