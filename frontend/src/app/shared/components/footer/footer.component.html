@@ -1,0 +1,67 @@
+<footer class="container footer-list">
+  <article class="main-footer__item">
+    <section class="container-img">
+      <img
+        src="assets/images/logo.svg"
+        alt="logo"
+        class="footer-list__item__logo"
+      />
+    </section>
+    <section class="container-social">
+      <a href="https://www.facebook.com/">
+        <img
+          src="assets/images/social-icons/i-fb.svg"
+          alt="facebook"
+          class="footer-list__item__social"
+        />
+      </a>
+      <a href="https://www.instagram.com/">
+        <img
+          src="assets/images/social-icons/i-instagram.svg"
+          alt="instagram"
+          class="footer-list__item__social"
+        />
+      </a>
+      <a href="https://www.linkedin.com/">
+        <img
+          src="assets/images/social-icons/i-linkedin.svg"
+          alt="linkedin"
+          class="footer-list__item__social"
+        />
+      </a>
+      <a href="#">
+        <img
+          src="assets/images/social-icons/i-game.svg"
+          alt="game"
+          class="footer-list__item__social"
+        />
+      </a>
+      <a href="https://www.twitter.com/">
+        <img
+          src="assets/images/social-icons/i-twitter.svg"
+          alt="twitter"
+          class="footer-list__item__social"
+        />
+      </a>
+    </section>
+    <section class="container-address">
+      <p class="address__item">Address</p>
+      <p class="address__item">+123 654 987</p>
+      <p class="address__item">977 The Bronx, NY</p>
+      <p class="address__item">14569, USA</p>
+      <p class="address__item copy">
+        Copyright ©2023 QuantumGamer All Rights Reserved
+      </p>
+    </section>
+  </article>
+  <article class="container-footer-links">
+    <section *ngFor="let item of footerLinks" class="footer-list__item">
+      <h3>{{ item.title }}</h3>
+      <ul>
+        <li *ngFor="let link of item.links">
+          <a [href]="link.url">{{ link.text }}</a>
+        </li>
+      </ul>
+    </section>
+  </article>
+</footer>

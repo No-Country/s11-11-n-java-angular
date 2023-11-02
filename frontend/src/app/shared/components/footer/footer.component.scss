@@ -1,0 +1,109 @@
+.footer-list {
+  font-family: var(--f-2);
+  background: var(--bg-gradient-3);
+  color: var(--c-1-a);
+  font-size: 1rem;
+  padding-left: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-wrap: wrap;
+    padding-right: 0;
+  }
+}
+
+.main-footer__item {
+  padding: 3rem 3rem 1.5rem;
+  background: var(--bg-gradient-2);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem 3rem 1.5rem;
+    width: 100%;
+  }
+}
+
+.container-img {
+  margin: 0 auto;
+}
+
+.container-social {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.container-address {
+  .address__item {
+    &:first-child {
+      font-weight: 700;
+    }
+
+    &:last-child {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.copy {
+  color: #fff;
+
+  /* Sombra APP */
+  text-shadow: var(--t-shadow-2);
+  font-weight: 400;
+}
+
+.container-footer-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding-top: 3rem; // 11rem para alinearlo a los íconos de redes sociales
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem 3rem 3rem;
+  }
+}
+
+.footer-list__item {
+  width: 165px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+
+  h3 {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        text-decoration: none;
+        color: var(--c-1-b);
+        font-family: var(--f-2);
+        font-size: 1em;
+        font-weight: 400;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
