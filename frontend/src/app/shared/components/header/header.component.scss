@@ -1,9 +1,16 @@
+.bg-header {
+  width: 100%;
+  background: var(--bg-gradient-1);
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+}
+
 .header-list {
   position: relative;
   height: 100px;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg-gradient-1);
 
   @media (max-width: 768px) {
     width: 100%;
@@ -14,10 +21,8 @@
   }
 }
 
-@media (max-width: 768px) {
-  .container-img {
-    width: 70px;
-  }
+.container-img {
+  width: 70px;
 }
 
 .container-nav {
@@ -38,7 +43,7 @@
     font-family: var(--f-1);
     font-weight: 600;
     color: var(--c-1-a);
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     &:hover {
       text-decoration: underline;
@@ -49,14 +54,15 @@
 .container-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 
   @media (max-width: 768px) {
     gap: 1rem;
 
     .btn-menu {
-      width: 30px !important;
-      height: 30px !important;
+      padding: 0;
+      width: 30px;
+      height: 30px;
     }
   }
 }
@@ -71,12 +77,17 @@
   border: none;
   outline: none;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 
   &:hover {
     background: rgb(0, 0, 0, 0.1);
@@ -94,6 +105,14 @@
     }
   }
 }
+
+.menu-user {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// MODALS - MENU ------------------------------- DESKTOP
 
 .header-menu-modal {
   // nav
@@ -184,6 +203,11 @@
       align-items: center;
       justify-content: flex-start;
       gap: 0.5rem;
+
+      img {
+        width: 1rem;
+        height: 1rem;
+      }
     }
 
     .link-sidebar {

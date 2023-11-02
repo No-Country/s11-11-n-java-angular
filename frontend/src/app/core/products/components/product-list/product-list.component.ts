@@ -13,45 +13,41 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'product-list',
   template: `
-    <div class="container-product-list">
+    <section class="container-product-list">
       <product-card
         *ngFor="let product of productList | slice: 0 : limit"
         [product]="product"
       />
-    </div>
+    </section>
   `,
   styles: [
     `
       .container-product-list {
         display: flex;
-        justify-content: space-between;
-        row-gap: 1rem;
+        gap: 1rem;
         flex-wrap: wrap;
       }
-    `,
-    `
+
       @media (max-width: 992px) {
         .container-product-list {
-          justify-content: center;
           gap: 1rem;
+          justify-content: center;
         }
       }
-    `,
-    `
+
       @media (max-width: 768px) {
         .container-product-list {
-          margin: 0 auto;
-          justify-content: center;
           gap: 1rem;
+          justify-content: center;
         }
       }
     `,
   ],
 })
 export class ProductListComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() limit!: number;
+  @Input() limit?: number;
   @Input() productList!: ProductCard[];
-  @Input() page!: number;
+  @Input() page?: number;
   private subscription!: Subscription;
 
   constructor(private productSvc: ProductService) {}
@@ -66,8 +62,8 @@ export class ProductListComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['productList'] || changes['limit']) {
-      this.productList = changes['productList'].currentValue;
-      this.limit = changes['limit'].currentValue;
+      this.productList = changes['productList']?.currentValue;
+      this.limit = changes['limit']?.currentValue;
     }
   }
 
