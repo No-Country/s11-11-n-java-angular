@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../../../../services/login.service';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTabLabel } from '@angular/material/tabs';
+
 import { Router } from '@angular/router';
 import { Login } from '../../../../shared/models/login.model';
-import { TimeoutError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +25,7 @@ export class LayoutLoginComponent {
     private loginService: LoginService,
 
     private snackBar: MatSnackBar,
-    private matLabel: MatTabLabel,
+
     private router: Router
   ) {}
 
@@ -38,7 +37,7 @@ export class LayoutLoginComponent {
   }
 
   login() {
-    this.loginService.Login(this.loginForm.value).subscribe((res: any) => {
+    this.loginService.Login(this.loginForm.value).subscribe((res) => {
       this.loginService.id = res.id;
       this.loginService.token = res.token;
       localStorage.setItem('id', res.id);
@@ -76,7 +75,7 @@ export class LayoutLoginComponent {
           location.href = '/quantum/home';
         }, 3000);
       },
-      error: (err) => {
+      error: () => {
         this.snackBar.open('Error al iniciar sesión', 'Error con tus datos');
       },
     });

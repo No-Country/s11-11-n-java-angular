@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ProductCard } from '../../models/product.interface';
+import { ProductDetailsModule } from 'src/app/pages/product-details/product-details.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-card',
@@ -10,6 +12,11 @@ export class ProductCardComponent {
   @Input() product!: ProductCard;
   iconCart = 'add';
   iconWish = 'add';
+
+  constructor(
+    private router: Router,
+    private details: ProductDetailsModule
+  ) {}
 
   addToCart(id: number) {
     if (this.iconCart === 'remove') {
@@ -33,5 +40,9 @@ export class ProductCardComponent {
 
   viewProduct() {
     console.log('View product:', this.product.id);
+  }
+
+  OpenDetails() {
+    this.router.navigate(['quantum/details']);
   }
 }
